@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Catatan interaktif matematika tentang persamaan kuadrat, rumus, contoh soal, dan kursus populer.">
+  <title>Ambatustudy — Notes</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+          <h1>Ambatustudy — Notes</h1>
+          <div style="font-size:12px;color:var(--muted)">Catatan & kursus interaktif</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#index">Home</a>
+        <a href="#notes">Catatan</a>
+        <a href="#courses">Latihan</a>
+        <a class="cta" href="#">Mulai Belajar</a>
+        <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <main class="content">
+        <div class="meta">
+          <div class="tag">Aljabar</div>
+          <div>Ambatustudy Notes — gaya bacaan ringkas</div>
+        </div>
+        <h2 class="chapter">Persamaan Kuadrat &nbsp; <span style="font-size:14px;color:var(--muted)">(Contoh + Pembahasan)</span></h2>
+        <p class="lead">Ringkasan cepat — definisi, rumus, dan contoh soal yang disusun rapi untuk belajar mandiri.</p>
+
+        <article>
+          <h3>Definisi</h3>
+          <p>Persamaan kuadrat adalah persamaan derajat dua dengan bentuk umum \(ax^2 + bx + c = 0\), di mana \(a \neq 0\). Akar-akar dapat dicari dengan rumus kuadrat:</p>
+
+          <div class="note">
+            <strong>Rumus Kuadrat:</strong>
+            <div style="margin-top:8px">\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</div>
+          </div>
+
+          <h3>Grafik Persamaan Kuadrat</h3>
+          <img src="https://mathinsight.org/media/image/image/quadratic_graph.png" alt="Grafik fungsi kuadrat" style="max-width:380px;border-radius:8px;margin:12px 0;">
+          <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Contoh grafik fungsi \(y = ax^2 + bx + c\)</div>
+
+          <h3>Contoh</h3>
+          <p>Selidiki akar persamaan \(2x^2 - 4x - 6 = 0\).</p>
+        <div class="contoh" id="contoh">
+          <strong>langkah penyelesaian singkat:</strong>
+          <br>
+          a = 2, b = -4, c = -6<br>
+          diskriminan D = b^2 - 4ac = (-4)^2 - 4*2*(-6) = 16 + 48 = 64<br>
+          x = (4 ± 8) / 4 => x1 = 3, x2 = -1<br>
+        </div>
+
+          <h3>Tip belajar</h3>
+          <ul>
+            <li>Selalu hitung diskriminan dulu untuk mengetahui jumlah akar.</li>
+            <li>Jika \(D > 0\) => 2 akar real; \(D = 0\) => 1 akar (double); \(D < 0\) => akar kompleks.</li>
+          </ul>
+
+          <h3>Latihan singkat</h3>
+          <p>Selesaikan: \(x^2 + 2x + 5 = 0\). <span style="color:var(--muted);font-size:13px">(Lihat jawaban di bawah)</span></p>
+        </article>
+
+        <div class="jawaban" id="jawaban">
+          <strong>Pembahasan Latihan:</strong>
+          <br>
+          Diskriminan D = \(2^2 - 4*1*5 = 4 - 20 = -16\)<br>
+          Karena D &lt; 0, akar berupa bilangan kompleks:<br>
+          \(x = \frac{-2 \pm \sqrt{-16}}{2} = \frac{-2 \pm 4i}{2} = -1 \pm 2i\)<br>
+          <span style="color:#059669">Jadi, akar persamaan adalah <b>-1 + 2i</b> dan <b>-1 - 2i</b>.</span>
+        </div>
+
+        <footer>
+          <div>Ingin lebih banyak contoh? Cek bagian Kursus atau coba fitur tanya-jawab interaktif.</div>
+        </footer>
+      </main>
+
+      <aside class="sidebar">
+        <div class="search">
+          <label for="q" style="display:none;">Cari topik</label>
+          <input id="q" placeholder="Cari topik atau guru..." aria-label="Cari topik atau guru" />
+          <button id="searchBtn" class="kbd">Cari</button>
+        </div>
+
+        <div class="tutor-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuW_sCddrGM7tefA6pDlKbjiQM2pue4agzuQ&s?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Foto tutor Lord Susi, Dosen Jarkom">
+          <div class="info">
+            <div class="name">Mas Amba</div>
+            <div class="role">Dosen Ngawi • 5.0 • 6.9k siswa</div>
+          </div>
+          <div><a class="cta" href="#">Daftar</a></div>
+        </div>
+
+        <div style="margin-bottom:12px;font-weight:700;color:var(--muted)">Kursus Populer</div>
+        <div class="course-grid">
+          <div class="course">
+            <h4>Aljabar Dasar</h4>
+            <p>12 modul • 8 jam</p>
+          </div>
+          <div class="course">
+            <h4>Kalkulus I</h4>
+            <p>10 modul • 9 jam</p>
+          </div>
+          <div class="course">
+            <h4>Geometri</h4>
+            <p>8 modul • 6 jam</p>
+          </div>
+          <div class="course">
+            <h4>Persiapan Ujian</h4>
+            <p>Belajar cepat & latihan soal</p>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;background:linear-gradient(90deg,#fff,#fbfdff);padding:12px;border-radius:10px;border:1px solid #eef2ff">
+          <div style="font-weight:700">Butuh bantuan?</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:6px">Chat dengan tutor atau lihat snippet ringkasan.</div>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button class="kbd" id="chatBtn">Chat</button>
+            <button class="cta" style="background:#10b981">Coba Quiz</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Chatbox Modal -->
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <img src="https://i1.sndcdn.com/artworks-F35OU0eOpcjHaeiP-jEMs5w-t20x20.jpg" alt="Mas Amba Avatar">
+          <div class="chat-status">
+            <div class="chat-name">Mas Amba</div>
+            <div class="chat-online">Online • AI Assistant</div>
+          </div>
+        </div>
+        <button id="closeChatBtn" class="chat-close">✕</button>
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="message-avatar">MA</div>
+          <div class="message-content">
+            <div class="message-text">Halo! Saya Mas Amba, asisten AI untuk AmbatuStudy. Ada yang bisa saya bantu terkait matematika atau materi pembelajaran?</div>
+            <div class="message-time">Sekarang</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+          <input type="text" id="chatInput" placeholder="Ketik pesan Anda..." maxlength="500">
+          <button id="sendChatBtn" class="send-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="chat-footer">
+          <span>Powered by AI • Mas Amba</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+
+
+  
+</body>
+</html>
