@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AmbatuStudy - Learn mathematics with comprehensive formulas and explanations">
+    <meta name="keywords" content="math, formulas, learning, education, mathematics">
+    <title>AmbatuStudy - Math Formulas for Learning</title>
+    
+    <!-- MathJax for rendering mathematical formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>AmbatuStudy</h1>
+                <span>Math Learning Hub</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#algebra" class="nav-link">Algebra</a></li>
+                    <li><a href="#geometry" class="nav-link">Geometry</a></li>
+                    <li><a href="#calculus" class="nav-link">Calculus</a></li>
+                    <li><a href="#statistics" class="nav-link">Statistics</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Master Mathematics with AmbatuStudy</h1>
+            <p>Comprehensive math formulas and explanations to accelerate your learning journey</p>
+            <div class="hero-formula">
+                $$E = mc^2$$
+            </div>
+            <button class="cta-button">Start Learning</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Algebra Section -->
+        <section id="algebra" class="math-section">
+            <div class="container">
+                <h2>Algebra Fundamentals</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Quadratic Formula</h3>
+                        <div class="formula">
+                            $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+                        </div>
+                        <p class="explanation">
+                            The quadratic formula solves equations of the form ax² + bx + c = 0, where a ≠ 0.
+                        </p>
+                        <div class="example">
+                            <h4>Example:</h4>
+                            <p>For equation x² + 5x + 6 = 0:</p>
+                            <div class="formula">
+                                $$x = \frac{-5 \pm \sqrt{25 - 24}}{2} = \frac{-5 \pm 1}{2}$$
+                            </div>
+                            <p>Solutions: x = -2 or x = -3</p>
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Binomial Expansion</h3>
+                        <div class="formula">
+                            $$(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k$$
+                        </div>
+                        <p class="explanation">
+                            The binomial theorem describes the algebraic expansion of powers of a binomial.
+                        </p>
+                        <div class="example">
+                            <h4>Example:</h4>
+                            <p>For (x + y)²:</p>
+                            <div class="formula">
+                                $$(x + y)^2 = x^2 + 2xy + y^2$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Logarithm Properties</h3>
+                        <div class="formula">
+                            $$\log_a(xy) = \log_a(x) + \log_a(y)$$
+                            $$\log_a\left(\frac{x}{y}\right) = \log_a(x) - \log_a(y)$$
+                            $$\log_a(x^n) = n\log_a(x)$$
+                        </div>
+                        <p class="explanation">
+                            These fundamental logarithm properties are essential for solving exponential equations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geometry Section -->
+        <section id="geometry" class="math-section">
+            <div class="container">
+                <h2>Geometry Essentials</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Circle Area and Circumference</h3>
+                        <div class="formula">
+                            $$A = \pi r^2$$
+                            $$C = 2\pi r$$
+                        </div>
+                        <p class="explanation">
+                            Area and circumference formulas for circles with radius r.
+                        </p>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Pythagorean Theorem</h3>
+                        <div class="formula">
+                            $$a^2 + b^2 = c^2$$
+                        </div>
+                        <p class="explanation">
+                            In a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.
+                        </p>
+                        <div class="example">
+                            <h4>Example:</h4>
+                            <p>If a = 3 and b = 4, then:</p>
+                            <div class="formula">
+                                $$c = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = 5$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Triangle Area</h3>
+                        <div class="formula">
+                            $$A = \frac{1}{2}bh$$
+                            $$A = \sqrt{s(s-a)(s-b)(s-c)}$$
+                        </div>
+                        <p class="explanation">
+                            Basic area formula using base and height, and Heron's formula using all three sides.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculus Section -->
+        <section id="calculus" class="math-section">
+            <div class="container">
+                <h2>Calculus Fundamentals</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Derivative Definition</h3>
+                        <div class="formula">
+                            $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+                        </div>
+                        <p class="explanation">
+                            The derivative represents the instantaneous rate of change of a function.
+                        </p>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Power Rule</h3>
+                        <div class="formula">
+                            $$\frac{d}{dx}[x^n] = nx^{n-1}$$
+                        </div>
+                        <p class="explanation">
+                            The power rule for differentiation of polynomial functions.
+                        </p>
+                        <div class="example">
+                            <h4>Example:</h4>
+                            <div class="formula">
+                                $$\frac{d}{dx}[x^3] = 3x^2$$
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Fundamental Theorem of Calculus</h3>
+                        <div class="formula">
+                            $$\int_a^b f'(x) dx = f(b) - f(a)$$
+                        </div>
+                        <p class="explanation">
+                            Links differentiation and integration as inverse operations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section id="statistics" class="math-section">
+            <div class="container">
+                <h2>Statistics & Probability</h2>
+                <div class="formula-grid">
+                    <div class="formula-card">
+                        <h3>Mean and Standard Deviation</h3>
+                        <div class="formula">
+                            $$\mu = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+                            $$\sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n} (x_i - \mu)^2}$$
+                        </div>
+                        <p class="explanation">
+                            Mean (μ) and standard deviation (σ) measure central tendency and spread.
+                        </p>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Normal Distribution</h3>
+                        <div class="formula">
+                            $$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
+                        </div>
+                        <p class="explanation">
+                            The probability density function of the normal distribution.
+                        </p>
+                    </div>
+
+                    <div class="formula-card">
+                        <h3>Bayes' Theorem</h3>
+                        <div class="formula">
+                            $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
+                        </div>
+                        <p class="explanation">
+                            Describes the probability of an event based on prior knowledge of conditions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AmbatuStudy</h3>
+                    <p>Making mathematics accessible and enjoyable for everyone.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#algebra">Algebra</a></li>
+                        <li><a href="#geometry">Geometry</a></li>
+                        <li><a href="#calculus">Calculus</a></li>
+                        <li><a href="#statistics">Statistics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: learn@ambatustudy.com</p>
+                    <p>© 2024 AmbatuStudy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
