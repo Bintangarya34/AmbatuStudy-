@@ -133,7 +133,7 @@
           <div style="font-weight:700">Butuh bantuan?</div>
           <div style="font-size:13px;color:var(--muted);margin-top:6px">Chat dengan tutor atau lihat snippet ringkasan.</div>
           <div style="margin-top:10px;display:flex;gap:8px">
-            <button class="kbd">Chat</button>
+            <button class="kbd" id="chatBtn">Chat</button>
             <button class="cta" style="background:#10b981">Coba Quiz</button>
           </div>
         </div>
@@ -141,7 +141,52 @@
     </div>
   </div>
 
+  <!-- Chatbox Modal -->
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <img src="https://via.placeholder.com/40x40?text=MA" alt="Mas Amba Avatar">
+          <div class="chat-status">
+            <div class="chat-name">Mas Amba</div>
+            <div class="chat-online">Online • AI Assistant</div>
+          </div>
+        </div>
+        <button id="closeChatBtn" class="chat-close">✕</button>
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="message-avatar">MA</div>
+          <div class="message-content">
+            <div class="message-text">Halo! Saya Mas Amba, asisten AI untuk AmbatuStudy. Ada yang bisa saya bantu terkait matematika atau materi pembelajaran?</div>
+            <div class="message-time">Sekarang</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+          <input type="text" id="chatInput" placeholder="Ketik pesan Anda..." maxlength="500">
+          <button id="sendChatBtn" class="send-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="chat-footer">
+          <span>Powered by AI • Mas Amba</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Script -->
   <script src="script.js"></script>
+
+
+
+  
 </body>
 </html>
