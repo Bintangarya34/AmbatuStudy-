@@ -92,6 +92,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000 + Math.random() * 2000); // Random delay 1-3 seconds
   }
 
+function loadPage(page) {
+  fetch(page)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("app").innerHTML = data;
+    })
+    .catch(err => {
+      document.getElementById("app").innerHTML = "<h2>Page not found</h2>";
+    });
+}
+
+function router() {
+  let hash = window.location.hash.substring(1); // hapus tanda #
+  if (hash === "") {
+    loadPage("index.html");
+  } else if (hash.toLowerCase() === "notes") {
+    loadPage("Notes.html");
+  } else if (hash.toLowerCase() === "videos") {
+    loadPage("Videos.html");
+  } else {
+    document.getElementById("app").innerHTML = "<h2>404 - Not Found</h2>";
+  }
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("load", router);
+
+
+  
   // Add message to chat
   function addMessage(text, sender) {
     const messageDiv = document.createElement('div');
