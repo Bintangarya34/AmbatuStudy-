@@ -1,8 +1,7 @@
 # AmbatuStudy-
 
-## Description
-
-AmbatuStudy-
+##Project Page:
+https://bintangarya34.github.io/AmbatuStudy-/
 
 ## Features
 
