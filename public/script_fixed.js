@@ -1,6 +1,6 @@
 // Interaktif kecil: search yang menyorot kata pada konten
-document.getElementById('searchBtn').addEventListener('click', function(){
-  const q = document.getElementById('q').value.trim();
+document.getElementById('searchBtn')?.addEventListener('click', function(){
+  const q = document.getElementById('q')?.value.trim();
   if(!q) return alert('Ketik kata kunci.');
   // cari dan scroll ke bagian yang cocok
   const content = document.querySelector('main');
@@ -17,9 +17,8 @@ document.getElementById('searchBtn').addEventListener('click', function(){
   }
 });
 
-// Wait for DOM to be fully loaded
+// Chatbox functionality
 document.addEventListener('DOMContentLoaded', function() {
-  // Chatbox functionality (dark mode is handled by darkmode.js)
   const chatModal = document.getElementById('chatModal');
   const chatBtn = document.getElementById('chatBtn');
   const closeChatBtn = document.getElementById('closeChatBtn');
@@ -27,15 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const sendChatBtn = document.getElementById('sendChatBtn');
   const chatMessages = document.getElementById('chatMessages');
 
-  // Check if elements exist
+  // Check if chatbox elements exist (only run if on page with chatbox)
   if (!chatBtn || !chatModal || !closeChatBtn || !chatInput || !sendChatBtn || !chatMessages) {
-    console.error('Chat elements not found in DOM');
-    return;
+    return; // Exit if chatbox elements don't exist
   }
 
   // Open chatbox
   chatBtn.addEventListener('click', function() {
-    console.log('Chat button clicked'); // Debug log
     chatModal.classList.add('show');
     chatInput.focus();
   });
@@ -50,21 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target === chatModal) {
       chatModal.classList.remove('show');
     }
-  });
-
-  // Event listeners for sending messages
-  sendChatBtn.addEventListener('click', sendMessage);
-
-  chatInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
-
-  // Enable/disable send button based on input
-  chatInput.addEventListener('input', function() {
-    sendChatBtn.disabled = !this.value.trim();
   });
 
   // Send message functionality
@@ -86,35 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000 + Math.random() * 2000); // Random delay 1-3 seconds
   }
 
-function loadPage(page) {
-  fetch(page)
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("app").innerHTML = data;
-    })
-    .catch(err => {
-      document.getElementById("app").innerHTML = "<h2>Page not found</h2>";
-    });
-}
-
-function router() {
-  let hash = window.location.hash.substring(1); // hapus tanda #
-  if (hash === "") {
-    loadPage("index.html");
-  } else if (hash.toLowerCase() === "notes") {
-    loadPage("Notes.html");
-  } else if (hash.toLowerCase() === "videos") {
-    loadPage("Videos.html");
-  } else {
-    document.getElementById("app").innerHTML = "<h2>404 - Not Found</h2>";
-  }
-}
-
-window.addEventListener("hashchange", router);
-window.addEventListener("load", router);
-
-
-  
   // Add message to chat
   function addMessage(text, sender) {
     const messageDiv = document.createElement('div');
@@ -186,7 +139,7 @@ window.addEventListener("load", router);
     }
   }
 
-  // Handle ChatGPT response (placeholder - will be replaced with actual API call)
+  // Handle ChatGPT response (placeholder)
   function handleChatGPTResponse(userMessage) {
     // Simulated responses from "Mas Amba"
     const responses = [
@@ -214,59 +167,20 @@ window.addEventListener("load", router);
     
     addMessage(response, 'bot');
   }
-});
 
-// ChatGPT API Integration (you'll need to add your API key)
-async function callChatGPTAPI(message) {
-  // Note: For production, you should implement this on the backend for security
-  // This is a frontend example - move to backend in real implementation
-  
-  const API_KEY = 'your-openai-api-key-here'; // Replace with your actual API key
-  const API_URL = 'https://api.openai.com/v1/chat/completions';
-  
-  try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          {
-            role: 'system',
-            content: 'Kamu adalah "Mas Amba", asisten AI untuk platform pembelajaran AmbatuStudy. Kamu ahli dalam matematika dan selalu membantu dengan cara yang ramah dan mudah dipahami. Gunakan bahasa Indonesia yang santai tapi tetap informatif. Fokus pada pembelajaran matematika, terutama topik seperti persamaan kuadrat, aljabar, geometri, dan kalkulus.'
-          },
-          {
-            role: 'user',
-            content: message
-          }
-        ],
-        max_tokens: 200,
-        temperature: 0.7
-      })
-    });
-    
-    const data = await response.json();
-    return data.choices[0].message.content;
-  } catch (error) {
-    console.error('Error calling ChatGPT API:', error);
-    return 'Maaf, saya sedang mengalami gangguan. Coba lagi dalam beberapa saat ya!';
-  }
-}
+  // Event listeners for sending messages
+  sendChatBtn.addEventListener('click', sendMessage);
 
-  // Replace the handleChatGPTResponse function to use actual API
-  // Uncomment this when you have your API key ready:
-  /*
-  async function handleChatGPTResponse(userMessage) {
-    try {
-      const response = await callChatGPTAPI(userMessage);
-      addMessage(response, 'bot');
-    } catch (error) {
-      addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', 'bot');
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
     }
-  }
-  */
+  });
 
-}); // End of DOMContentLoaded
+  // Enable/disable send button based on input
+  chatInput.addEventListener('input', function() {
+    sendChatBtn.disabled = !this.value.trim();
+  });
+
+});
