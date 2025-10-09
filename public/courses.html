@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Video tutorial matematika Ambatustudy: aljabar, kalkulus, dan materi populer.">
+  <title>Ambatustudy — Learn</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+          <h1>Ambatu-train</h1>
+          <div style="font-size:12px;color:var(--muted)">Belajar Matematika Lebih Mudah</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="notes.html">Catatan</a>
+        <a href="courses.html" class="cta">Latihan</a>
+        <a href="videos.html">Video</a>
+        <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content">
+        <h2 class="chapter">Latihan: Aljabar Linear</h2>
+        <p class="lead">Kerjakan soal-soal berikut untuk mengasah pemahamanmu tentang Aljabar Linear.</p>
+
+        <div id="quiz-container">
+          <!-- Soal akan dimuat otomatis lewat JS -->
+        </div>
+
+        <button id="next-btn" class="cta" style="margin-top:16px;">Soal Selanjutnya</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Ambatustudy. Latihan Aljabar Linear tanpa ribet.</p>
+    </footer>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Jika matriks A = [[2, 3], [1, 4]], maka determinan A adalah ...",
+        options: ["5", "2", "11", "8"],
+        answer: "5"
+      },
+      {
+        question: "Hasil dari perkalian matriks [[1, 2], [3, 4]] × [[2, 0], [1, 2]] adalah ...",
+        options: [
+          "[[4, 4], [10, 8]]",
+          "[[2, 1], [3, 4]]",
+          "[[2, 0], [1, 2]]",
+          "[[3, 3], [7, 7]]"
+        ],
+        answer: "[[4, 4], [10, 8]]"
+      },
+      {
+        question: "Jika vektor a = (2, 3) dan b = (1, -1), maka hasil dot product a·b adalah ...",
+        options: ["-1", "5", "0", "2"],
+        answer: "-1"
+      },
+      {
+        question: "Persamaan sistem: x + y = 5 dan x - y = 1. Nilai x adalah ...",
+        options: ["3", "2", "4", "1"],
+        answer: "3"
+      }
+    ];
+
+    let currentQuestion = 0;
+    const quizContainer = document.getElementById('quiz-container');
+    const nextBtn = document.getElementById('next-btn');
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      quizContainer.innerHTML = `
+        <div class="question-block">
+          <h3>${currentQuestion + 1}. ${q.question}</h3>
+          <div class="options">
+            ${q.options.map(opt => `
+              <label class="option">
+                <input type="radio" name="option" value="${opt}"> ${opt}
+              </label>
+            `).join('')}
+          </div>
+        </div>
+      `;
+      nextBtn.disabled = false;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      const selected = document.querySelector('input[name="option"]:checked');
+      if (!selected) {
+        alert('Pilih salah satu jawaban dulu!');
+        return;
+      }
+      const answer = selected.value;
+      const correct = questions[currentQuestion].answer;
+
+      const result = document.createElement('div');
+      result.className = answer === correct ? 'jawaban' : 'note';
+      result.innerHTML = answer === correct
+        ? '✅ Jawaban benar!'
+        : `❌ Jawaban salah! Jawaban yang benar: <b>${correct}</b>`;
+
+      quizContainer.appendChild(result);
+
+      if (currentQuestion < questions.length - 1) {
+        nextBtn.textContent = "Soal Berikutnya";
+        nextBtn.onclick = () => {
+          currentQuestion++;
+          loadQuestion();
+        };
+      } else {
+        nextBtn.textContent = "Selesai";
+        nextBtn.onclick = () => {
+          quizContainer.innerHTML = "<h3>🎉 Latihan selesai! Bagus sekali!</h3>";
+          nextBtn.style.display = "none";
+        };
+      }
+    });
+
+    loadQuestion();
+  </script>
+</body>
+</html>
