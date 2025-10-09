@@ -32,6 +32,28 @@
       </nav>
     </header>
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="login-modal">
+      <div class="login-container">
+        <div class="login-header">
+          <h3>Masuk untuk Mengerjakan Latihan</h3>
+          <p>Masukkan nama Anda untuk mulai mengerjakan soal-soal latihan</p>
+        </div>
+        
+        <div class="login-body">
+          <div class="login-form">
+            <label for="userName">Nama Anda:</label>
+            <input type="text" id="userName" placeholder="Contoh: Budi Santoso" maxlength="50" autocomplete="name">
+            <button id="loginBtn" class="login-submit">Mulai Latihan</button>
+          </div>
+          
+          <div class="login-footer">
+            <p>Nama akan ditampilkan selama sesi latihan ini</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <main>
       <section class="content">
         <h2 class="chapter">Latihan: Aljabar Linear</h2>
@@ -134,6 +156,120 @@
 
     loadQuestion();
 
+  </script>
+  
+  <!-- Login System Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginModal = document.getElementById('loginModal');
+      const loginBtn = document.getElementById('loginBtn');
+      const userNameInput = document.getElementById('userName');
+      const quizContainer = document.getElementById('quiz-container');
+      const nextBtn = document.getElementById('next-btn');
+
+      // Check if user is already logged in
+      function checkLoginStatus() {
+        const savedUser = localStorage.getItem('ambatuStudyUser');
+        if (savedUser) {
+          showWelcomeUser(JSON.parse(savedUser));
+          return true;
+        }
+        return false;
+      }
+
+      // Show login modal
+      function showLoginModal() {
+        loginModal.classList.add('show');
+        userNameInput.focus();
+      }
+
+      // Hide login modal
+      function hideLoginModal() {
+        loginModal.classList.remove('show');
+      }
+
+      // Show welcome message and update header
+      function showWelcomeUser(user) {
+        // Update header with user info
+        const nav = document.querySelector('nav');
+        const existingWelcome = nav.querySelector('.user-welcome');
+        
+        if (!existingWelcome) {
+          const userWelcome = document.createElement('div');
+          userWelcome.className = 'user-welcome';
+          userWelcome.innerHTML = `
+            <div class="user-icon">${user.name.charAt(0).toUpperCase()}</div>
+            <span>Halo, ${user.name}!</span>
+            <button class="logout-btn" onclick="logoutUser()" title="Keluar">✕</button>
+          `;
+          
+          // Insert before dark mode toggle
+          const darkToggle = nav.querySelector('.dark-toggle');
+          nav.insertBefore(userWelcome, darkToggle);
+        }
+      }
+
+      // Handle login
+      function handleLogin() {
+        const name = userNameInput.value.trim();
+        
+        if (name.length < 2) {
+          alert('Nama minimal 2 karakter ya!');
+          userNameInput.focus();
+          return;
+        }
+        
+        if (name.length > 50) {
+          alert('Nama terlalu panjang, maksimal 50 karakter');
+          userNameInput.focus();
+          return;
+        }
+
+        const user = {
+          name: name,
+          loginTime: new Date().toISOString(),
+          id: Date.now()
+        };
+
+        // Save to localStorage
+        localStorage.setItem('ambatuStudyUser', JSON.stringify(user));
+        
+        // Show welcome and hide modal
+        showWelcomeUser(user);
+        hideLoginModal();
+      }
+
+      // Event listeners
+      loginBtn.addEventListener('click', handleLogin);
+      
+      userNameInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          handleLogin();
+        }
+      });
+
+      userNameInput.addEventListener('input', function() {
+        loginBtn.disabled = this.value.trim().length < 2;
+      });
+
+      // Logout function (global scope)
+      window.logoutUser = function() {
+        if (confirm('Yakin ingin keluar? Progress latihan akan hilang.')) {
+          localStorage.removeItem('ambatuStudyUser');
+          location.reload();
+        }
+      };
+
+      // Initialize
+      if (!checkLoginStatus()) {
+        // Hide quiz content until logged in
+        quizContainer.style.display = 'none';
+        nextBtn.style.display = 'none';
+        
+        // Show login modal after short delay for smooth UX
+        setTimeout(showLoginModal, 300);
+      }
+    });
   </script>
   
   <!-- Dark mode script -->
