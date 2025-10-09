@@ -1,30 +1,36 @@
-// Interaktif kecil: search yang menyorot kata pada konten
-document.getElementById('searchBtn').addEventListener('click', function(){
-  const q = document.getElementById('q').value.trim();
-  if(!q) return alert('Ketik kata kunci.');
-  // cari dan scroll ke bagian yang cocok
-  const content = document.querySelector('main');
-  const el = Array.from(content.querySelectorAll('h3, p, li'))
-    .find(n => n.textContent.toLowerCase().includes(q.toLowerCase()));
-  if(el){
-    el.scrollIntoView({behavior:'smooth', block:'center'});
-    el.style.transition = 'background 0.6s';
-    const orig = el.style.background;
-    el.style.background = 'linear-gradient(90deg,#fffbeb,#fff7ed)';
-    setTimeout(()=> el.style.background = orig, 1600);
-  } else {
-    alert('Tidak ditemukan di catatan singkat. Coba kursus atau tanya tutor.');
-  }
-});
-
-// Dark mode toggle
-document.getElementById('toggleMode').addEventListener('click', function(){
-  document.body.classList.toggle('dark');
-  this.textContent = document.body.classList.contains('dark') ? '☀' : '🌙';
-});
-
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+  // Dark mode toggle
+  const toggleBtn = document.getElementById('toggleMode');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(){
+      document.body.classList.toggle('dark');
+      this.textContent = document.body.classList.contains('dark') ? '☀' : '🌙';
+    });
+  }
+
+  // Search functionality
+  const searchBtn = document.getElementById('searchBtn');
+  const searchInput = document.getElementById('q');
+  if (searchBtn && searchInput) {
+    searchBtn.addEventListener('click', function(){
+      const q = searchInput.value.trim();
+      if(!q) return alert('Ketik kata kunci.');
+      // cari dan scroll ke bagian yang cocok
+      const content = document.querySelector('main');
+      const el = Array.from(content.querySelectorAll('h3, p, li'))
+        .find(n => n.textContent.toLowerCase().includes(q.toLowerCase()));
+      if(el){
+        el.scrollIntoView({behavior:'smooth', block:'center'});
+        el.style.transition = 'background 0.6s';
+        const orig = el.style.background;
+        el.style.background = 'linear-gradient(90deg,#fffbeb,#fff7ed)';
+        setTimeout(()=> el.style.background = orig, 1600);
+      } else {
+        alert('Tidak ditemukan di catatan singkat. Coba kursus atau tanya tutor.');
+      }
+    });
+  }
   // Chatbox functionality
   const chatModal = document.getElementById('chatModal');
   const chatBtn = document.getElementById('chatBtn');
@@ -262,15 +268,17 @@ async function callChatGPTAPI(message) {
   }
 }
 
-// Replace the handleChatGPTResponse function to use actual API
-// Uncomment this when you have your API key ready:
-/*
-async function handleChatGPTResponse(userMessage) {
-  try {
-    const response = await callChatGPTAPI(userMessage);
-    addMessage(response, 'bot');
-  } catch (error) {
-    addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', 'bot');
+  // Replace the handleChatGPTResponse function to use actual API
+  // Uncomment this when you have your API key ready:
+  /*
+  async function handleChatGPTResponse(userMessage) {
+    try {
+      const response = await callChatGPTAPI(userMessage);
+      addMessage(response, 'bot');
+    } catch (error) {
+      addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', 'bot');
+    }
   }
-}
-*/
+  */
+
+}); // End of DOMContentLoaded
