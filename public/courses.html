@@ -32,6 +32,9 @@
       </nav>
     </header>
 
+    <!-- User Welcome Section -->
+    <div id="userWelcome" style="display: none;"></div>
+
     <!-- Login Modal -->
     <div id="loginModal" class="login-modal">
       <div class="login-container">
@@ -58,6 +61,16 @@
       <section class="content">
         <h2 class="chapter">Latihan: Aljabar Linear</h2>
         <p class="lead">Kerjakan soal-soal berikut untuk mengasah pemahamanmu tentang Aljabar Linear.</p>
+        
+        <!-- Butuh bantuan section -->
+        <div style="text-align: center; margin: 24px 0; padding: 20px; background: var(--card); border-radius: 12px; border: 1px solid #e5e7eb;">
+          <h4>Butuh bantuan?</h4>
+          <p style="color: var(--muted); margin: 8px 0;">Chat dengan tutor atau lihat snippet ringkasan.</p>
+          <div style="display: flex; gap: 12px; justify-content: center;">
+            <button class="kbd" id="chatBtn">Chat</button>
+            <button class="kbd" style="background: #10b981;">Coba Quiz</button>
+          </div>
+        </div>
 
         <div id="quiz-container">
           <!-- Soal akan dimuat otomatis lewat JS -->
@@ -72,207 +85,38 @@
     </footer>
   </div>
 
-  <script>
-    const questions = [
-      {
-        question: "Jika matriks A = [[2, 3], [1, 4]], maka determinan A adalah ...",
-        options: ["5", "2", "11", "8"],
-        answer: "5"
-      },
-      {
-        question: "Hasil dari perkalian matriks [[1, 2], [3, 4]] × [[2, 0], [1, 2]] adalah ...",
-        options: [
-          "[[4, 4], [10, 8]]",
-          "[[2, 1], [3, 4]]",
-          "[[2, 0], [1, 2]]",
-          "[[3, 3], [7, 7]]"
-        ],
-        answer: "[[4, 4], [10, 8]]"
-      },
-      {
-        question: "Jika vektor a = (2, 3) dan b = (1, -1), maka hasil dot product a·b adalah ...",
-        options: ["-1", "5", "0", "2"],
-        answer: "-1"
-      },
-      {
-        question: "Persamaan sistem: x + y = 5 dan x - y = 1. Nilai x adalah ...",
-        options: ["3", "2", "4", "1"],
-        answer: "3"
-      }
-    ];
-
-    let currentQuestion = 0;
-    const quizContainer = document.getElementById('quiz-container');
-    const nextBtn = document.getElementById('next-btn');
-
-    function loadQuestion() {
-      const q = questions[currentQuestion];
-      quizContainer.innerHTML = `
-        <div class="question-block">
-          <h3>${currentQuestion + 1}. ${q.question}</h3>
-          <div class="options">
-            ${q.options.map(opt => `
-              <label class="option">
-                <input type="radio" name="option" value="${opt}"> ${opt}
-              </label>
-            `).join('')}
+  <!-- Chat Modal (Mas Amba) -->
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-avatar">MA</div>
+        <div class="chat-info">
+          <h3>Mas Amba</h3>
+          <p>AI Tutor Matematika</p>
+        </div>
+        <button id="closeChatBtn" class="chat-close">✕</button>
+      </div>
+      
+      <div id="chatMessages" class="chat-messages">
+        <div class="message bot-message">
+          <div class="message-avatar">MA</div>
+          <div class="message-content">
+            <div class="message-text">Halo! Saya Mas Amba, siap membantu dengan soal matematika. Ada yang mau ditanyakan?</div>
+            <div class="message-time">Sekarang</div>
           </div>
         </div>
-      `;
-      nextBtn.disabled = false;
-    }
-
-    nextBtn.addEventListener('click', () => {
-      const selected = document.querySelector('input[name="option"]:checked');
-      if (!selected) {
-        alert('Pilih salah satu jawaban dulu!');
-        return;
-      }
-      const answer = selected.value;
-      const correct = questions[currentQuestion].answer;
-
-      const result = document.createElement('div');
-      result.className = answer === correct ? 'jawaban' : 'note';
-      result.innerHTML = answer === correct
-        ? '✅ Jawaban benar!'
-        : `❌ Jawaban salah! Jawaban yang benar: <b>${correct}</b>`;
-
-      quizContainer.appendChild(result);
-
-      if (currentQuestion < questions.length - 1) {
-        nextBtn.textContent = "Soal Berikutnya";
-        nextBtn.onclick = () => {
-          currentQuestion++;
-          loadQuestion();
-        };
-      } else {
-        nextBtn.textContent = "Selesai";
-        nextBtn.onclick = () => {
-          quizContainer.innerHTML = "<h3>🎉 Latihan selesai! Bagus sekali!</h3>";
-          nextBtn.style.display = "none";
-        };
-      }
-    });
-
-    loadQuestion();
-
-  </script>
-  
-  <!-- Login System Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const loginModal = document.getElementById('loginModal');
-      const loginBtn = document.getElementById('loginBtn');
-      const userNameInput = document.getElementById('userName');
-      const quizContainer = document.getElementById('quiz-container');
-      const nextBtn = document.getElementById('next-btn');
-
-      // Check if user is already logged in
-      function checkLoginStatus() {
-        const savedUser = localStorage.getItem('ambatuStudyUser');
-        if (savedUser) {
-          showWelcomeUser(JSON.parse(savedUser));
-          return true;
-        }
-        return false;
-      }
-
-      // Show login modal
-      function showLoginModal() {
-        loginModal.classList.add('show');
-        userNameInput.focus();
-      }
-
-      // Hide login modal
-      function hideLoginModal() {
-        loginModal.classList.remove('show');
-      }
-
-      // Show welcome message and update header
-      function showWelcomeUser(user) {
-        // Update header with user info
-        const nav = document.querySelector('nav');
-        const existingWelcome = nav.querySelector('.user-welcome');
-        
-        if (!existingWelcome) {
-          const userWelcome = document.createElement('div');
-          userWelcome.className = 'user-welcome';
-          userWelcome.innerHTML = `
-            <div class="user-icon">${user.name.charAt(0).toUpperCase()}</div>
-            <span>Halo, ${user.name}!</span>
-            <button class="logout-btn" onclick="logoutUser()" title="Keluar">✕</button>
-          `;
-          
-          // Insert before dark mode toggle
-          const darkToggle = nav.querySelector('.dark-toggle');
-          nav.insertBefore(userWelcome, darkToggle);
-        }
-      }
-
-      // Handle login
-      function handleLogin() {
-        const name = userNameInput.value.trim();
-        
-        if (name.length < 2) {
-          alert('Nama minimal 2 karakter ya!');
-          userNameInput.focus();
-          return;
-        }
-        
-        if (name.length > 50) {
-          alert('Nama terlalu panjang, maksimal 50 karakter');
-          userNameInput.focus();
-          return;
-        }
-
-        const user = {
-          name: name,
-          loginTime: new Date().toISOString(),
-          id: Date.now()
-        };
-
-        // Save to localStorage
-        localStorage.setItem('ambatuStudyUser', JSON.stringify(user));
-        
-        // Show welcome and hide modal
-        showWelcomeUser(user);
-        hideLoginModal();
-      }
-
-      // Event listeners
-      loginBtn.addEventListener('click', handleLogin);
+      </div>
       
-      userNameInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          handleLogin();
-        }
-      });
-
-      userNameInput.addEventListener('input', function() {
-        loginBtn.disabled = this.value.trim().length < 2;
-      });
-
-      // Logout function (global scope)
-      window.logoutUser = function() {
-        if (confirm('Yakin ingin keluar? Progress latihan akan hilang.')) {
-          localStorage.removeItem('ambatuStudyUser');
-          location.reload();
-        }
-      };
-
-      // Initialize
-      if (!checkLoginStatus()) {
-        // Hide quiz content until logged in
-        quizContainer.style.display = 'none';
-        nextBtn.style.display = 'none';
-        
-        // Show login modal after short delay for smooth UX
-        setTimeout(showLoginModal, 300);
-      }
-    });
-  </script>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Tanya soal matematika..." maxlength="500">
+        <button id="sendChatBtn" class="send-btn">
+          <span>Kirim</span>
+        </button>
+      </div>
+    </div>
+  </div>
   
-  <!-- Dark mode script -->
-  <script src="script_clean.js"></script>
+  <!-- Unified JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

@@ -72,36 +72,7 @@
     </footer>
   </div>
 
-  <!-- Dark mode script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Videos.html script loaded');
-      
-      const toggleBtn = document.getElementById('toggleMode');
-      console.log('Toggle button found:', toggleBtn);
-      
-      if (toggleBtn) {
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          document.body.classList.add('dark');
-          toggleBtn.textContent = '☀';
-        }
-        
-        // Add click event
-        toggleBtn.addEventListener('click', function(){
-          console.log('Toggle clicked');
-          document.body.classList.toggle('dark');
-          const isDark = document.body.classList.contains('dark');
-          this.textContent = isDark ? '☀' : '🌙';
-          
-          // Save preference
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-      } else {
-        console.error('Toggle button not found');
-      }
-    });
-  </script>
+  <!-- Unified JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

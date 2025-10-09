@@ -815,3 +815,52 @@ body.dark .logout-btn {
 body.dark .logout-btn:hover {
   background: rgba(248, 113, 113, 0.1);
 }
+
+/* User Welcome Message Styling */
+#userWelcome {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(13, 24, 40, 0.1);
+  transition: background 0.3s;
+}
+
+body.dark #userWelcome {
+  background: var(--dark-card);
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.welcome-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+body.dark .welcome-text {
+  color: var(--dark-accent);
+}
+
+.login-time {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+body.dark .login-time {
+  color: var(--dark-muted);
+}
+
+@media (max-width: 600px) {
+  .welcome-message {
+    text-align: center;
+  }
+  
+  .welcome-text {
+    font-size: 16px;
+  }
+}
