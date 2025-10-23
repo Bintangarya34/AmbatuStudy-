@@ -41,3 +41,13 @@ const app = new Elysia()
   .listen(3000);
 
 console.log(`Server is running at http://${app.server?.hostname}:${app.server?.port}`);
+
+/*
+kalau mau run::
+bun add pg
+
+database: postgresql
+user: ambatulayapp
+pass: 09876
+database: ambatustudy
+ */
