@@ -32,6 +32,9 @@
         <a href="courses.html">Latihan</a>
         <a href="videos.html">Video</a>
         <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+        <button id="logoutBtn" title="Logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
       </nav>
     </header>
 
@@ -105,6 +108,13 @@
   </div>
 
  <script src="script.js"></script>
- 
+ <script>
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      // bisa tambahkan localStorage.clear() jika pakai sistem login nanti
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    });
+  </script>
+
 </body>
 </html>

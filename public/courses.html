@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Video tutorial matematika Ambatustudy: aljabar, kalkulus, dan materi populer.">
   <title>Ambatustudy — Learn</title>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,9 @@
         <a href="courses.html" class="cta">Latihan</a>
         <a href="videos.html">Video</a>
         <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+        <button id="logoutBtn" title="Logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
       </nav>
     </header>
 
@@ -118,5 +122,12 @@
   
   <!-- Unified JavaScript -->
   <script src="script.js"></script>
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      // bisa tambahkan localStorage.clear() jika pakai sistem login nanti
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>

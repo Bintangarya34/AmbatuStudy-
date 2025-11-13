@@ -864,3 +864,40 @@ body.dark .login-time {
     font-size: 16px;
   }
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* bisa diganti space-between kalau mau pisah kiri-kanan */
+  gap: 1.5rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #4f46e5;
+}
+
+/* Tombol logout */
+#logoutBtn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+#logoutBtn:hover {
+  color: darkred;
+  transform: scale(1.1);
+}
+
