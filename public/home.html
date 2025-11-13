@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ambatustudy — platform belajar interaktif dengan catatan, latihan soal, dan video.">
+  <title>Ambatustudy — Beranda</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+          <h1>Ambatustudy</h1>
+          <div style="font-size:12px;color:var(--muted)">Belajar Matematika Lebih Mudah</div>
+        </div>
+      </div>
+      <nav>
+        <a href="home.html" class="cta">Home</a>
+        <a href="notes.html">Catatan</a>
+        <a href="courses.html">Latihan</a>
+        <a href="videos.html">Video</a>
+        <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Belajar Matematika Tanpa Ribet</h2>
+      <p>Catatan rapi, latihan soal interaktif, dan video tutorial — semua ada di satu tempat.</p>
+      <a href="notes.html" class="btn-primary">Mulai Belajar</a>
+    </section>
+
+    <!-- Features Section -->
+    <main class="content">
+      <h3>Kenapa Ambatustudy?</h3>
+      <div class="features">
+        <div class="feature-card">
+          <h4><i class="fa-solid fa-book"></i> Catatan Lengkap</h4>
+          <p>Materi matematika terstruktur seperti di buku kuliah, tapi lebih ringkas dan mudah dipahami.</p>
+        </div>
+        <div class="feature-card">
+          <h4><i class="fa-solid fa-pen-to-square"></i> Latihan Soal</h4>
+          <p>Ribuan soal interaktif dengan pembahasan, cocok untuk latihan harian maupun persiapan ujian.</p>
+        </div>
+        <div class="feature-card">
+          <h4><i class="fa-solid fa-video"></i> Video Tutorial</h4>
+          <p>Penjelasan visual untuk konsep sulit, dari persamaan kuadrat hingga kalkulus lanjutan.</p>
+        </div>
+        <div class="feature-card">
+          <h4><i class="fa-solid fa-robot"></i> Mas Amba AI</h4>
+          <p>Tanya langsung ke AI tutor matematika yang siap membantu 24/7.</p>
+          <button class="kbd" id="chatBtn">Chat</button>
+        </div>
+      </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+      <p style="font-size:13px;color:var(--muted);">© 2025 Ambatustudy • Belajar interaktif untuk semua</p>
+    </footer>
+  </div>
+
+  <!-- Chat Modal -->
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="chat-avatar">MA</div>
+        <div class="chat-info">
+          <h3>Mas Amba</h3>
+          <p>AI Tutor Matematika</p>
+        </div>
+        <button id="closeChatBtn" class="chat-close">✕</button>
+      </div>
+      
+      <div id="chatMessages" class="chat-messages">
+        <div class="message bot-message">
+          <div class="message-avatar">MA</div>
+          <div class="message-content">
+            <div class="message-text">Halo! Saya Mas Amba, siap membantu belajar matematika. Ada soal yang mau ditanyakan?</div>
+            <div class="message-time">Sekarang</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Ketik pertanyaan matematika...">
+        <button id="sendChatBtn" class="send-btn">
+          <span>Kirim</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+ <script src="script.js"></script>
+ 
+</body>
+</html>

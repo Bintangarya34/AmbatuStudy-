@@ -1,108 +1,129 @@
-<!doctype html>
-<html lang="id">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ambatustudy — platform belajar interaktif dengan catatan, latihan soal, dan video.">
-  <title>Ambatustudy — Beranda</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | AmbatuStudy</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #0077CC, #36BAF6);
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .login-container h1 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #0077CC;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #0077CC;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #0ea5e9;
+    }
+
+    .footer-text {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .footer-text a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <div class="site">
-    <!-- Header -->
-    <header>
-      <div class="brand">
-        <div class="logo">AS</div>
-        <div>
-          <h1>Ambatustudy</h1>
-          <div style="font-size:12px;color:var(--muted)">Belajar Matematika Lebih Mudah</div>
-        </div>
+  <div class="login-container">
+    <h1>AmbatuStudy Login</h1>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required />
       </div>
-      <nav>
-        <a href="index.html" class="cta">Home</a>
-        <a href="notes.html">Catatan</a>
-        <a href="courses.html">Latihan</a>
-        <a href="videos.html">Video</a>
-        <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
-      </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <h2>Belajar Matematika Tanpa Ribet</h2>
-      <p>Catatan rapi, latihan soal interaktif, dan video tutorial — semua ada di satu tempat.</p>
-      <a href="notes.html" class="btn-primary">Mulai Belajar</a>
-    </section>
-
-    <!-- Features Section -->
-    <main class="content">
-      <h3>Kenapa Ambatustudy?</h3>
-      <div class="features">
-        <div class="feature-card">
-          <h4>📘 Catatan Lengkap</h4>
-          <p>Materi matematika terstruktur seperti di buku kuliah, tapi lebih ringkas dan mudah dipahami.</p>
-        </div>
-        <div class="feature-card">
-          <h4>📝 Latihan Soal</h4>
-          <p>Ribuan soal interaktif dengan pembahasan, cocok untuk latihan harian maupun persiapan ujian.</p>
-        </div>
-        <div class="feature-card">
-          <h4>🎥 Video Tutorial</h4>
-          <p>Penjelasan visual untuk konsep sulit, dari persamaan kuadrat hingga kalkulus lanjutan.</p>
-        </div>
-        <div class="feature-card">
-          <h4>🤖 Mas Amba AI</h4>
-          <p>Tanya langsung ke AI tutor matematika yang siap membantu 24/7.</p>
-          <button class="kbd" id="chatBtn">Chat</button>
-        </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
       </div>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-      <p style="font-size:13px;color:var(--muted);">© 2025 Ambatustudy • Belajar interaktif untuk semua</p>
-    </footer>
+      <button type="submit" class="login-btn">Login</button>
+
+      <div class="footer-text">
+        Don’t have an account? <a href="#">Register</a>
+      </div>
+    </form>
   </div>
 
-  <!-- Chat Modal -->
-  <div id="chatModal" class="chat-modal">
-    <div class="chat-container">
-      <div class="chat-header">
-        <div class="chat-avatar">MA</div>
-        <div class="chat-info">
-          <h3>Mas Amba</h3>
-          <p>AI Tutor Matematika</p>
-        </div>
-        <button id="closeChatBtn" class="chat-close">✕</button>
-      </div>
-      
-      <div id="chatMessages" class="chat-messages">
-        <div class="message bot-message">
-          <div class="message-avatar">MA</div>
-          <div class="message-content">
-            <div class="message-text">Halo! Saya Mas Amba, siap membantu belajar matematika. Ada soal yang mau ditanyakan?</div>
-            <div class="message-time">Sekarang</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="chat-input-area">
-        <input type="text" id="chatInput" placeholder="Ketik pertanyaan matematika...">
-        <button id="sendChatBtn" class="send-btn">
-          <span>Kirim</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
- <script src="script.js"></script>
- 
+  <script>
+    // simulasi login - langsung pindah ke index.html
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      // nanti bisa ganti dengan validasi login backend
+      window.location.href = "home.html";
+    });
+  </script>
 </body>
 </html>
