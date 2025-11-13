@@ -163,42 +163,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Handle ChatGPT response (placeholder - will be replaced with actual API call)
-  function handleChatGPTResponse(userMessage) {
-    // Simulated responses from "Mas Amba"
-    const responses = [
-      "Pertanyaan yang bagus! Untuk masalah matematika seperti ini, mari kita breakdown step by step.",
-      "Saya Mas Amba siap membantu! Bisa tolong jelaskan lebih detail soal yang ingin dipecahkan?",
-      "Dari pengalaman mengajar, konsep ini sering bikin bingung. Mari saya jelaskan dengan cara yang mudah dipahami.",
-      "Oke, untuk soal persamaan kuadrat seperti ini, kita mulai dengan mencari diskriminannya dulu ya.",
-      "Bagus! Ini topik favorit saya. Ada beberapa cara untuk menyelesaikan ini, mau yang mana?",
-      "Hmm, kalau untuk materi ini, saya sarankan pahami konsep dasarnya dulu. Mau saya jelaskan?",
-      "Wah, ini soal yang menarik! Di AmbatuStudy kita punya metode khusus untuk menyelesaikan ini."
-    ];
-    
-    // Simple keyword-based responses
-    let response = responses[Math.floor(Math.random() * responses.length)];
-    
-    if (userMessage.toLowerCase().includes('persamaan kuadrat')) {
-      response = "Persamaan kuadrat ya! Ingat rumus ABC: x = (-b ± √(b²-4ac)) / 2a. Diskriminan (b²-4ac) menentukan jenis akarnya. Mau saya bantu dengan contoh soal?";
-    } else if (userMessage.toLowerCase().includes('matematika') || userMessage.toLowerCase().includes('math')) {
-      response = "Matematika memang menantang, tapi jangan khawatir! Saya Mas Amba akan bantu sampai paham. Topik mana yang ingin dipelajari?";
-    } else if (userMessage.toLowerCase().includes('halo') || userMessage.toLowerCase().includes('hai')) {
-      response = "Halo juga! Saya Mas Amba, asisten AI AmbatuStudy. Siap membantu belajar matematika. Ada soal yang mau ditanyakan?";
-    } else if (userMessage.toLowerCase().includes('terima kasih') || userMessage.toLowerCase().includes('thanks')) {
-      response = "Sama-sama! Senang bisa membantu. Jangan ragu untuk bertanya lagi kalau ada yang belum jelas ya! 😊";
+  // Handle ChatGPT response using API
+  async function handleChatGPTResponse(userMessage) {
+    try {
+      const response = await callChatGPTAPI(userMessage);
+      addMessage(response, 'bot');
+    } catch (error) {
+      console.error('API Error:', error);
+      addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', 'bot');
     }
-    
-    addMessage(response, 'bot');
   }
 });
 
 // ChatGPT API Integration (you'll need to add your API key)
 async function callChatGPTAPI(message) {
-  // Note: For production, you should implement this on the backend for security
-  // This is a frontend example - move to backend in real implementation
+  // ⚠️ WARNING: API key exposed in frontend! For testing ONLY.
+  // For production, MUST move to backend to protect API key from public access
   
-  const API_KEY = 'your-openai-api-key-here'; // Replace with your actual API key
+  const API_KEY = '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';
   const API_URL = 'https://api.openai.com/v1/chat/completions';
   
   try {
@@ -233,15 +215,5 @@ async function callChatGPTAPI(message) {
   }
 }
 
-// Replace the handleChatGPTResponse function to use actual API
-// Uncomment this when you have your API key ready:
-/*
-async function handleChatGPTResponse(userMessage) {
-  try {
-    const response = await callChatGPTAPI(userMessage);
-    addMessage(response, 'bot');
-  } catch (error) {
-    addMessage('Maaf, terjadi kesalahan. Silakan coba lagi.', 'bot');
-  }
-}
-*/
+
+// This duplicate function is removed since we already have it inside the DOMContentLoaded event listener above
