@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Catatan interaktif matematika tentang persamaan kuadrat, rumus, contoh soal, dan kursus populer.">
   <title>Ambatu-notes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +36,9 @@
         <a href="courses.html">Latihan</a>
         <a href="videos.html" >Video</a>
         <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
+        <button id="logoutBtn" title="Logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
       </nav>
     </header>
 
@@ -184,9 +189,13 @@
 
   <!-- Script -->
   <script src="script.js"></script>
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", function() {
+      // bisa tambahkan localStorage.clear() jika pakai sistem login nanti
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    });
+  </script>
 
-
-
-  
 </body>
 </html>
