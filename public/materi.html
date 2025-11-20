@@ -3,90 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AmbatuStudy - Catatan Interaktif</title>
+    <title>AmbatuStudy - Daftar Isi Materi</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <style>
-            /* Tambahan untuk styling Catatan/Notes Page */
-            /* ==================================== */
-
-            .content-container {
-                max-width: 1000px;
-                margin: 30px auto;
-                padding: 40px;
-                background-color: #ffffff;
-                border-radius: 15px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            }
-            .content-container h2 {
-                font-size: 28px;
-                font-weight: 700;
-                color: var(--text-color);
-                margin-bottom: 25px;
-            }
-            .intro-text {
-                font-size: 16px;
-                line-height: 1.6;
-                color: #555;
-                margin-bottom: 30px;
-            }
-            .topic-section {
-                margin-bottom: 30px;
-                padding: 20px;
-                border-left: 5px solid var(--light-blue);
-                background-color: #f9f9f9;
-                border-radius: 8px;
-            }
-            .topic-section h3 {
-                font-size: 18px;
-                font-weight: 600;
-                color: #444;
-                margin-bottom: 10px;
-            }
-            .topic-links {
-                display: inline-block;
-                margin-left: 10px;
-            }
-            .topic-links a {
-                font-weight: 600;
-                margin-right: 10px;
-                padding: 3px 8px;
-                border-radius: 5px;
-                border: 1px solid var(--light-blue);
-                color: var(--light-blue);
-                text-decoration: none;
-                transition: background-color 0.2s;
-            }
-            .topic-links a:hover {
-                background-color: var(--light-blue);
-                color: #ffffff;
-                border-color: var(--light-blue);
-            }
-            .topic-list {
-                list-style: none; /* Menghilangkan list-style default */
-                padding-left: 0;
-            }
-            .topic-list li {
-                font-size: 15px;
-                line-height: 1.8;
-                margin-bottom: 5px;
-                color: #444;
-                list-style: disc; /* Menggunakan disc untuk bullet point */
-                margin-left: 25px;
-            }
-            .topic-list li p {
-                display: inline; /* Agar elemen p tidak membuat baris baru */
-            }
-            .assumption-note {
-                font-style: italic;
-                font-size: 14px;
-                color: #777;
-                margin-top: 20px;
-                padding: 15px;
-                background-color: #f0f8ff;
-                border-radius: 5px;
-            }
+        /* Gaya Spesifik untuk Halaman Daftar Isi */
+        .content-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .content-container h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 25px;
+        }
+        .topic-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 5px solid var(--light-blue);
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .topic-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .topic-links {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .topic-links a {
+            font-weight: 600;
+            margin-right: 10px;
+            padding: 3px 8px;
+            border-radius: 5px;
+            border: 1px solid var(--light-blue);
+            color: var(--light-blue);
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .topic-links a:hover {
+            background-color: var(--light-blue);
+            color: #ffffff;
+            border-color: var(--light-blue);
+        }
+        .topic-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .topic-list li {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 5px;
+            color: #444;
+            list-style: disc;
+            margin-left: 25px;
+        }
+        .topic-list li p {
+            display: inline;
+        }
+        .topic-list li a {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .topic-list li a:hover {
+            text-decoration: underline;
+            color: var(--cta-blue);
+        }
+        .assumption-note {
+            font-style: italic;
+            font-size: 14px;
+            color: #777;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -94,18 +97,17 @@
         <div class="logo">
             <span class="material-icons logo-icon">school</span>
             <div class="logo-text">
-                <span class="site-name">Ambatustudy</span> 
-                <span class="tagline">Belajar Matematika Lebih Mudah</span>
+                <span class="site-name">Ambatu-notes</span> 
+                <span class="tagline">Belajar dengan catatan interaktif</span>
             </div>
         </div>
 
         <div class="nav-right-side">
             <ul class="nav-links">
                 <li><a href="home.html" >Home</a></li>
-                <li><a href="notes.html" class="active-link">Materi</a></li> 
-                <li><a href="notes.html">Catatan</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li> 
                 <li><a href="courses.html">Latihan</a></li>
-                <li><a href="Videos.html">Video</a></li>
+                <li><a href="videos.html">Video</a></li>
             </ul>
 
             <a href="index.html" class="logout-button">
@@ -119,22 +121,16 @@
         <h2>Daftar Isi</h2>
 
         <div class="topic-section">
-            <h3>Aljabar Linear 
-                <span class="topic-links">
-                    [ <a href="#">Catatan</a> ] 
-                    [ <a href="#">Soal Latihan</a> ] 
-                    [ <a href="#">Soal Tugas</a> ]
-                </span>
-                - Topik yang termasuk dalam rangkaian catatan ini:
+            <h3>Aljabar Linear - Topik yang termasuk dalam rangkaian catatan ini:
             </h3>
             <ul class="topic-list">
-                <li><p><strong>Pendahuluan</strong> - Sifat Eksponen, Eksponen Rasional, Eksponen Negatif, Radikal, Polinomial, Pemfaktoran, Ekspresi Rasional, Bilangan Kompleks</p></li>
-                <li><p><strong>Menyelesaikan Persamaan dan Pertidaksamaan</strong> - Persamaan Linear, Persamaan Kuadrat, Melengkapi Kuadrat, Rumus Kuadrat, Aplikasi Persamaan Linear dan Kuadrat, Dapat Disederhanakan ke Bentuk Kuadrat, Persamaan dengan Radikal, Pertidaksamaan Linear, Pertidaksamaan Polinomial & Rasional, Persamaan & Pertidaksamaan Nilai Mutlak.</p></li>
-                <li><p><strong>Grafik dan Fungsi</strong> - Grafik Garis, Lingkaran, dan Fungsi Sepotong-sepotong, Definisi Fungsi, Notasi Fungsi, Komposisi Fungsi, Fungsi Invers.</p></li>
-                <li><p><strong>Grafik Umum</strong> - Parabola, Elips, Hiperbola, Nilai Mutlak, Akar Kuadrat, Fungsi Konstan, Fungsi Rasional, Pergeseran, Refleksi, Simetri.</p></li>
-                <li><p><strong>Fungsi Polinomial</strong> - Membagi Polinomial, Nol/Akar Polinomial, Menemukan Nol Polinomial, Menggambar Grafik Polinomial, Pecahan Parsial.</p></li>
-                <li><p><strong>Fungsi Eksponensial dan Logaritma</strong> - Fungsi Eksponensial, Fungsi Logaritma, Penyelesaian Fungsi Eksponensial, Penyelesaian Fungsi Logaritma, Aplikasi.</p></li>
-                <li><p><strong>Sistem Persamaan</strong> - Metode Substitusi, Metode Eliminasi, Matriks Tertambah, Sistem Nonlinier.</p></li>
+                <li><p><strong><a href="materi-1.html">Pendahuluan</a></strong> - Sifat Eksponen, Eksponen Rasional, Eksponen Negatif, Radikal, Polinomial, Pemfaktoran, Ekspresi Rasional, Bilangan Kompleks</p></li>
+                <li><p><strong><a href="materi-2.html">Menyelesaikan Persamaan dan Pertidaksamaan</a></strong> - Persamaan Linear, Persamaan Kuadrat, Melengkapi Kuadrat, Rumus Kuadrat, Aplikasi Persamaan Linear dan Kuadrat, Dapat Disederhanakan ke Bentuk Kuadrat, Persamaan dengan Radikal, Pertidaksamaan Linear, Pertidaksamaan Polinomial & Rasional, Persamaan & Pertidaksamaan Nilai Mutlak.</p></li> 
+                <li><p><strong><a href="#">Grafik dan Fungsi</a></strong> - Grafik Garis, Lingkaran, dan Fungsi Sepotong-sepotong, Definisi Fungsi, Notasi Fungsi, Komposisi Fungsi, Fungsi Invers.</p></li>
+                <li><p><strong><a href="#">Grafik Umum</a></strong> - Parabola, Elips, Hiperbola, Nilai Mutlak, Akar Kuadrat, Fungsi Konstan, Fungsi Rasional, Pergeseran, Refleksi, Simetri.</p></li>
+                <li><p><strong><a href="#">Fungsi Polinomial</a></strong> - Membagi Polinomial, Nol/Akar Polinomial, Menemukan Nol Polinomial, Menggambar Grafik Polinomial, Pecahan Parsial.</p></li>
+                <li><p><strong><a href="#">Fungsi Eksponensial dan Logaritma</a></strong> - Fungsi Eksponensial, Fungsi Logaritma, Penyelesaian Fungsi Eksponensial, Penyelesaian Fungsi Logaritma, Aplikasi.</p></li>
+                <li><p><strong><a href="#">Sistem Persamaan</a></strong> - Metode Substitusi, Metode Eliminasi, Matriks Tertambah, Sistem Nonlinier.</p></li>
             </ul>
             <p class="assumption-note">
                 Catatan/tutorial Aljabar mengasumsikan Anda telah memahami dasar-dasar Aljabar. Khususnya, diasumsikan bahwa bagian eksponen dan pemfaktoran akan lebih merupakan tinjauan bagi Anda. Selain itu, diasumsikan Anda telah mempelajari dasar-dasar grafik persamaan. Menggambar grafik jenis-jenis persamaan tertentu dibahas secara ekstensif dalam catatan, namun, diasumsikan Anda telah memahami sistem koordinat dasar dan cara memplot titik.
@@ -142,21 +138,15 @@
         </div>
 
         <div class="topic-section">
-            <h3>Kalkulus I
-                <span class="topic-links">
-                    [ <a href="#">Catatan</a> ] 
-                    [ <a href="#">Soal Latihan</a> ] 
-                    [ <a href="#">Soal Tugas</a> ]
-                </span>
-                - Topik yang termasuk dalam rangkaian catatan/tutorial ini adalah:
+            <h3>Kalkulus I- Topik yang termasuk dalam rangkaian catatan/tutorial ini adalah:
             </h3>
             <ul class="topic-list">
-                <li><p><strong>Tinjauan Aljabar/Trig</strong> - Fungsi dan Persamaan Trigonometri, Fungsi dan Persamaan Eksponensial, Fungsi dan Persamaan Logaritma.</p></li>
-                <li><p><strong>Limit</strong> - Konsep, Definisi, Komputasi, Limit Satu Sisi, Kontinuitas, Limit yang Melibatkan Ketakhinggaan, Aturan L'Hospital</p></li>
-                <li><p><strong>Turunan</strong> - Definisi, Interpretasi, Rumus Turunan, Aturan Pangkat, Aturan Produk, Aturan Hasil Bagi, Aturan Rantai, Turunan Orde Lebih Tinggi, Diferensiasi Implisit, Diferensiasi Logaritma, Turunan Fungsi Trigonometri, Fungsi Eksponensial, Fungsi Logaritma, Fungsi Trigonometri Invers, dan Fungsi Trigonometri Hiperbolik.</p></li>
-                <li><p><strong>Aplikasi Derivatif</strong> - Laju Terkait, Titik Kritis, Nilai Minimum dan Maksimum, Fungsi Naik/Turun, Titik Infleksi, Konkavitas, Optimasi</p></li>
-                <li><p><strong>Integrasi</strong> - Definisi, Integral Tak Tentu, Integral Tentu, Aturan Substitusi, Mengevaluasi Integral Tentu, Teorema Dasar Kalkulus</p></li>
-                <li><p><strong>Aplikasi Integral</strong> - Nilai Fungsi Rata-rata, Luas Antar Kurva, Padatan Revolusi, Pekerjaan.</p></li>
+                <li><p><strong><a href="#">Tinjauan Aljabar/Trig</a></strong> - Fungsi dan Persamaan Trigonometri, Fungsi dan Persamaan Eksponensial, Fungsi dan Persamaan Logaritma.</p></li>
+                <li><p><strong><a href="#">Limit</a></strong> - Konsep, Definisi, Komputasi, Limit Satu Sisi, Kontinuitas, Limit yang Melibatkan Ketakhinggaan, Aturan L'Hospital</p></li>
+                <li><p><strong><a href="#">Turunan</a></strong> - Definisi, Interpretasi, Rumus Turunan, Aturan Pangkat, Aturan Produk, Aturan Hasil Bagi, Aturan Rantai, Turunan Orde Lebih Tinggi, Diferensiasi Implisit, Diferensiasi Logaritma, Turunan Fungsi Trigonometri, Fungsi Eksponensial, Fungsi Logaritma, Fungsi Trigonometri Invers, dan Fungsi Trigonometri Hiperbolik.</p></li>
+                <li><p><strong><a href="#">Aplikasi Derivatif</a></strong> - Laju Terkait, Titik Kritis, Nilai Minimum dan Maksimum, Fungsi Naik/Turun, Titik Infleksi, Konkavitas, Optimasi</p></li>
+                <li><p><strong><a href="#">Integrasi</a></strong> - Definisi, Integral Tak Tentu, Integral Tentu, Aturan Substitusi, Mengevaluasi Integral Tentu, Teorema Dasar Kalkulus</p></li>
+                <li><p><strong><a href="#">Aplikasi Integral</a></strong> - Nilai Fungsi Rata-rata, Luas Antar Kurva, Padatan Revolusi, Pekerjaan.</p></li>
             </ul>
             <p class="assumption-note">
                 Catatan/tutorial Kalkulus I mengasumsikan Anda memiliki pengetahuan dasar tentang Aljabar dan Trigonometri. Terdapat ulasan tentang beberapa topik Aljabar dan Trigonometri, tetapi sebagian besar diasumsikan Anda memiliki latar belakang yang memadai di bidang Aljabar dan Trigonometri. Catatan ini mengasumsikan Anda tidak memiliki pengetahuan Kalkulus sebelumnya.

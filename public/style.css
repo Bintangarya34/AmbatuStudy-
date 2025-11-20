@@ -1,314 +1,329 @@
-
 /* style.css */
 
-        /* Variabel Warna */
-        :root {
-            --primary-blue: #34CFF4; /* Biru Gelap/Cyan untuk Teks dan Link */
-            --light-blue: #24AEFF; /* Biru Terang untuk Gradient */
-            --cta-blue: #2CBEFA; /* Warna Tombol Aksi */
-            --text-color: #333;
-            --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
+/* ==================================== */
+/* 1. Variabel Warna */
+/* ==================================== */
+:root {
+    --primary-blue: #34CFF4; /* Biru Gelap/Cyan untuk Teks dan Link */
+    --light-blue: #24AEFF; /* Biru Terang untuk Gradient */
+    --cta-blue: #34CFF4; /* Warna Tombol Aksi */
+    --text-color: #333;
+    --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
 
-        /* Reset dan Pengaturan Dasar */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* ==================================== */
+/* 2. General Resets */
+/* ==================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-            background-color: #FAFAFA; 
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: #fafafa; 
+}
 
-        a {
-            text-decoration: none;
-            color: var(--primary-blue);
-        }
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
 
-        /* ==================================== */
-        /* Navbar Styling */
-        /* ==================================== */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+/* ==================================== */
+/* 3. Navbar Styling (Navigasi Penuh & Log Out) */
+/* ==================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
 
-        .nav-right-side {
-            display: flex;
-            align-items: center;
-            gap: 30px; /* Jarak antara Video dan Log Out */
-        }
+.logo {
+    display: flex;
+    align-items: center;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+/* Logo Konsisten */
+.logo-icon {
+    font-size: 32px;
+    background-color: var(--light-blue);
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
 
-        .logo-icon {
-            font-size: 32px;
-            /* Ikon di dalam lingkaran biru/kuning seperti di gambar */
-            background-color: var(--light-blue);
-            color: #fff;
-            border-radius: 50%;
-            padding: 5px;
-            margin-right: 10px;
-        }
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
+.site-name {
+    font-size: 18px; /* Ukuran Logo Konsisten */
+    font-weight: 700;
+    white-space: nowrap;
+}
 
-        .site-name {
-            font-size: 18px;
-            font-weight: 700;
-        }
+.tagline {
+    font-size: 11px; /* Ukuran Tagline Konsisten */
+    color: #777;
+    white-space: nowrap;
+}
 
-        .tagline {
-            font-size: 11px;
-            color: #777;
-        }
+.nav-right-side {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            margin-right: auto; /* Mendorong links ke kiri, agar tombol logout berada di kanan */
-            margin-left: 20px;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
 
-        .nav-links a {
-            font-weight: 600;
-            color: var(--text-color);
-            padding: 8px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+.nav-links a {
+    font-weight: 600;
+    color: var(--text-color);
+    padding: 8px 20px;
+    border-radius: 15px;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
 
-        .nav-links .active-link {
-            /* Gaya untuk link 'Home' yang aktif/seperti tombol */
-            background-color: var(--light-blue);
-            color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+/* Hover effect untuk tautan navigasi standar */
+.nav-links a:not(.active-link):hover {
+    color: #000; 
+    background-color: #f0f0f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
 
-        /* Gaya untuk Tombol Log Out */
-        .logout-button {
-            text-decoration: none;
-            color: var(--light-blue);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            padding: 8px 15px;
-            border: 1px solid var(--light-blue);
-            border-radius: 5px;
-            transition: background-color 0.2s, color 0.2s;
-        }
+.nav-links .active-link {
+    background-color: var(--light-blue);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .logout-button:hover {
-            background-color: var(--light-blue);
-            color: #ffffff;
-        }
+/* Gaya Tombol Log Out */
+.logout-button {
+    text-decoration: none;
+    color: var(--light-blue);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border: 1px solid var(--light-blue);
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
 
-        .logout-button .material-icons {
-            font-size: 20px;
-            margin-right: 5px;
-        }
+.logout-button:hover {
+    background-color: var(--light-blue);
+    color: #ffffff;
+    border-color: var(--light-blue);
+}
 
-        /* ==================================== */
-        /* Hero Section Styling */
-        /* ==================================== */
-        .hero-section {
-            padding: 50px 5%;
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
+.logout-button .material-icons {
+    font-size: 20px;
+    margin-right: 5px;
+}
 
-        .hero-content {
-            /* Gradient Biru/Cyan dari Gambar */
-            background-image: linear-gradient(to right, var(--light-blue), var(--primary-blue));
-            color: #ffffff;
-            padding: 60px 40px;
-            border-radius: 25px; /* Sudut lebih membulat */
-            text-align: center;
-            max-width: 1000px;
-            width: 100%;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+/* ==================================== */
+/* 4. Hero Section Styling */
+/* ==================================== */
+.hero-section {
+    padding: 50px 5%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 
-        .hero-content h1 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
+.hero-content {
+    background-image: linear-gradient(to right, var(--light-blue), var(--primary-blue));
+    color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
+.hero-content h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 
-        .cta-button {
-            display: inline-block;
-            background-color: #ffffff;
-            color: var(--cta-blue);
-            font-weight: 600;
-            padding: 12px 30px;
-            border-radius: 8px;
-            transition: transform 0.1s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
+.cta-button {
+    display: inline-block;
+    background-color: #ffffff;
+    color: var(--cta-blue);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        /* ==================================== */
-        /* Features Section (Cards) Styling */
-        /* ==================================== */
-        .features-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 50px 5%;
-            align-items: stretch;
-        }
-
-        .feature-card {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 350px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s;
-        }
-
-        .feature-card p.card-description {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
-            flex-grow: 1; /* PENTING: Memaksa area ini tumbuh dan mendorong link ke bawah */
-            text-align: justify; /* Rata kiri-kanan */
-        }
-
-        .card-icon-container {
-            width: 40px;
-            height: 40px;
-            background-color: var(--light-blue); 
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .card-icon {
-            color: #ffffff;
-            font-size: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
-            flex-grow: 1; 
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-link {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--light-blue);
-            transition: color 0.3s;
-        }
-
-        .card-link:hover {
-            color: var(--cta-blue); /* Warna tautan berubah saat di-hover */
-        }
-
-        .card-link:hover .arrow-icon {
-            transform: translateX(5px); /* Panah bergerak ke kanan */
-        }
-
-        .arrow-icon {
-            font-size: 18px;
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        /* ==================================== */
-        /* AI Button Placeholder */
-        /* ==================================== */
-        .ai-button-placeholder {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-blue);
-            color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 14px;
-        }
+.cta-button:hover {
+    transform: translateY(-2px);
+}
 
 
-        /* Media Query untuk Responsif (Opsional) */
-        @media (max-width: 1024px) {
-            .features-section {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
+/* ==================================== */
+/* 5. Features Section (Cards) - HOME.HTML */
+/* ==================================== */
+.features-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antar kartu dikurangi */
+    padding: 50px 5%;
+    /* PENTING: Menyusun kartu agar tingginya sama */
+    align-items: stretch; 
+}
 
-            .feature-card {
-                max-width: 90%;
-            }
-        }
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    /* Lebar maksimum diperbesar */
+    max-width: 400px; 
+    /* Minimal tinggi agar kartu tetap terlihat besar */
+    min-height: 280px; 
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s; 
+}
 
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+/* Hover Effect Card */
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
 
-            .nav-links {
-                margin-top: 10px;
-                gap: 15px;
-            }
+.card-icon-container {
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-blue); 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
 
-            .hero-content h1 {
-                font-size: 30px;
-            }
-        }
+.card-icon {
+    color: #ffffff;
+    font-size: 20px;
+}
 
+.feature-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* PENTING: Deskripsi rata kiri-kanan dan flex-grow untuk tinggi yang seragam */
+.feature-card p.card-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+    text-align: justify; /* Rata kiri-kanan */
+}
+
+/* Link dan Hover Panah */
+.card-link {
+    margin-top: auto; /* Memastikan link selalu di bawah */
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--light-blue);
+    transition: color 0.3s;
+}
+
+.card-link:hover {
+    color: var(--cta-blue);
+}
+
+.arrow-icon {
+    font-size: 18px;
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.card-link:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* ==================================== */
+/* 6. Gaya Umum Pages Lain (Materi, Video, Latihan) */
+/* ==================================== */
+
+/* AI Button Placeholder */
+.ai-button-placeholder {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-blue);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+}
+
+/* Media Query untuk Responsif */
+@media (max-width: 1024px) {
+    .features-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .feature-card {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-right-side {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+}

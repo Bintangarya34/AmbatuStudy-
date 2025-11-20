@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmbatuStudy - Latihan Interaktif</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <style>
-        /* Gaya Spesifik Latihan */
-        /* Kontainer Utama */
+        /* ==================================== */
+        /* Gaya Spesifik Latihan (Menggantikan Card Container Besar) */
+        /* ==================================== */
         .main-content {
             display: flex;
-            justify-content: center;
-            padding: 50px 20px;
+            flex-direction: column;
+            align-items: center; /* Memusatkan item secara horizontal */
+            padding: 50px 5%; 
             min-height: 80vh;
         }
 
-        .card-container {
+        /* Halaman Pilih Materi */
+        #materi-selection {
             width: 100%;
             max-width: 800px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
         }
 
-        /* Halaman Pilih Materi (Frame 73) */
         #materi-selection h2 {
             text-align: center;
             font-size: 30px;
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
@@ -39,35 +39,41 @@
             margin-bottom: 40px;
         }
 
+        /* Grid Materi */
         .materi-grid {
             display: flex;
-            gap: 40px;
+            gap: 30px; /* Jarak antar card disesuaikan */
             justify-content: center;
+            flex-wrap: wrap; 
         }
 
         .materi-card {
             background-color: #ffffff;
             border: 1px solid #f0f0f0;
-            border-radius: 10px;
+            border-radius: 30px;
             padding: 30px;
-            width: 300px;
+            /* Ukuran diperbesar */
+            width: 350px; 
             text-align: center;
             cursor: pointer;
-            transition: box-shadow 0.2s, border-color 0.2s;
+            /* Animasi Hover */
+            transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
         }
 
         .materi-card:hover {
-            box-shadow: 0 5px 15px rgba(var(--primary-blue), 0.2);
-            border-color: var(--cta-blue);
+            transform: translateY(-3px); /* Efek lift */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
         }
 
         .materi-icon {
             font-size: 60px;
-            color: var(--cta-blue);
+            color: var(--light-blue);
             background-color: #e6f7ff;
             border-radius: 50%;
             padding: 15px;
             margin-bottom: 15px;
+            display: inline-flex;
         }
 
         .materi-card h3 {
@@ -81,29 +87,56 @@
             margin-bottom: 20px;
         }
 
+        .materi-info {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
         .materi-info span {
             display: inline-block;
-            margin: 0 10px;
             padding: 5px 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 20px;
             font-size: 12px;
-            color: #555;
+            color: #333;
+            background-color: #eee;
         }
-
-        /* Halaman Kuis dan Hasil (Frame 74-77) */
+        
+        /* ==================================== */
+        /* Halaman Kuis dan Hasil (Menggunakan gaya Card) */
+        /* ==================================== */
+        #quiz-section, #result-section {
+            width: 100%;
+            max-width: 800px; 
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            display: none;
+        }
         #quiz-section {
-            display: none; /* Disembunyikan secara default */
-            padding: 0 20px;
+            padding: 30px;
         }
-
+        
         #quiz-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-
+        #score-display {
+            color: var(--light-blue); 
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        #score-display .material-icons {
+            font-size: 24px;
+            color: var(--light-blue); 
+        }
+        /* ... (CSS Quiz/Opsi lainnya tetap sama) ... */
         .progress-bar {
             width: 100%;
             height: 8px;
@@ -111,21 +144,18 @@
             border-radius: 4px;
             margin-bottom: 30px;
         }
-
         .progress-bar-fill {
             height: 100%;
             width: 0%;
-            background-color: var(--cta-blue);
+            background-color: var(--light-blue);
             border-radius: 4px;
             transition: width 0.3s;
         }
-
         #question-text {
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 30px;
         }
-
         .option-item {
             display: flex;
             align-items: center;
@@ -137,21 +167,17 @@
             border: 1px solid #f7f7f7;
             transition: background-color 0.15s, border-color 0.15s;
         }
-
         .option-item:hover {
             background-color: #eeeeee;
         }
-
         .option-item.correct {
-            background-color: #e6ffe6; /* Hijau terang */
-            border-color: #4CAF50; /* Hijau */
+            background-color: #e6ffe6; 
+            border-color: #4CAF50; 
         }
-
         .option-item.incorrect {
-            background-color: #ffe6e6; /* Merah terang */
-            border-color: #F44336; /* Merah */
+            background-color: #ffe6e6;
+            border-color: #F44336; 
         }
-
         .option-letter {
             width: 30px;
             height: 30px;
@@ -163,291 +189,107 @@
             font-weight: 600;
             margin-right: 15px;
         }
-
         .option-item.correct .option-letter {
             background-color: #4CAF50;
             color: #ffffff;
         }
-
         .option-item.incorrect .option-letter {
             background-color: #F44336;
             color: #ffffff;
         }
-        
         .status-icon {
             margin-left: auto;
             font-size: 24px;
         }
-
         .option-item.correct .status-icon {
             color: #4CAF50;
         }
-
         .option-item.incorrect .status-icon {
             color: #F44336;
         }
 
-        /* Halaman Hasil (Frame 77) */
+
+        /* Gaya Halaman Hasil (REVISI AKHIR) */
         #result-section {
-            display: none; /* Disembunyikan secara default */
             text-align: center;
+            padding: 40px; 
         }
-
         .result-icon {
-            font-size: 80px;
-            color: var(--cta-blue);
-            margin-bottom: 20px;
+            margin-top: 10px; 
+            margin-bottom: 30px; 
+            font-size: 60px;
+            color: var(--light-blue);
+            background-color: #e6f7ff;
+            border-radius: 50%;
+            padding: 20px;
+            display: inline-block;
         }
-
         #result-section h2 {
             font-size: 36px;
+            margin-top: 15px; 
             margin-bottom: 10px;
         }
-
         #result-score {
             font-size: 60px;
             font-weight: 700;
-            color: var(--cta-blue);
-            margin: 20px 0;
+            color: var(--light-blue);
+            margin: 30px 0; 
         }
-
         #result-bar-container {
             width: 50%;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 40px auto; 
         }
-
         .result-message {
             background-color: #f0f8ff;
             border: 1px solid #cceeff;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 0 auto 40px auto; 
             color: #555;
             font-size: 14px;
+            width: 90%; 
+            max-width: 700px;
         }
-
+        .result-message p {
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+        .result-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
         .result-actions button {
-            padding: 10px 20px;
+            flex-grow: 1; 
+            max-width: 200px; 
+            padding: 12px 20px;
             border: none;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            margin: 0 10px;
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
         }
-
         #repeat-quiz-btn {
-            background-color: var(--cta-blue);
+            background-color: var(--light-blue);
             color: white;
         }
-
+        #repeat-quiz-btn:hover {
+            background-color: var(--cta-blue);
+            transform: translateY(-2px);
+        }
         #home-btn {
             background-color: #f0f0f0;
             color: #555;
+            border: 1px solid #ddd; 
         }
-
-        /* Floating Chat Button */
-        .floating-chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--cta-blue), var(--primary-blue));
-            color: white;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 999;
-            transition: transform 0.2s;
-        }
-
-        .floating-chat-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Chat Modal Styles */
-        .chat-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .chat-container {
-            width: 400px;
-            height: 600px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .chat-header {
-            padding: 16px 20px;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, var(--cta-blue), var(--primary-blue));
-            color: white;
-        }
-
-        .chat-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-info h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .chat-info p {
-            margin: 0;
-            font-size: 12px;
-            opacity: 0.8;
-        }
-
-        .chat-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 12px;
-        }
-
-        .chat-close {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 16px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .message {
-            display: flex;
-            gap: 8px;
-            max-width: 80%;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-        }
-
-        .user-message {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-
-        .message-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--cta-blue);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .user-message .message-avatar {
-            background: #6b7280;
-        }
-
-        .message-content {
-            background: #f1f5f9;
-            border-radius: 16px;
-            padding: 12px 16px;
-            flex: 1;
-        }
-
-        .user-message .message-content {
-            background: var(--cta-blue);
-            color: white;
-        }
-
-        .message-text {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
-        .message-time {
-            font-size: 11px;
-            color: #6b7280;
-            margin-top: 4px;
-        }
-
-        .user-message .message-time {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .chat-input-area {
-            padding: 16px;
-            border-top: 1px solid #f1f5f9;
-            display: flex;
-            gap: 8px;
-        }
-
-        #chatInput {
-            flex: 1;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        #chatInput:focus {
-            border-color: var(--cta-blue);
-        }
-
-        .send-btn {
-            background: var(--cta-blue);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 16px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .send-btn:hover {
-            background: var(--primary-blue);
+        #home-btn:hover {
+            background-color: #e0e0e0;
+            color: #333;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -456,18 +298,17 @@
         <div class="logo">
             <span class="material-icons logo-icon">school</span>
             <div class="logo-text">
-                <span class="site-name">Ambatustudy</span> 
-                <span class="tagline">Belajar Matematika Lebih Mudah</span>
+                <span class="site-name">Ambatu-train</span> 
+                <span class="tagline">Belajar dengan latihan Interaktif</span>
             </div>
         </div>
 
         <div class="nav-right-side">
             <ul class="nav-links">
                 <li><a href="home.html" >Home</a></li> 
-                <li><a href="materi.html">Materi</a></li>
-                <li><a href="notes.html">Catatan</a></li>
+                <li><a href="materi.html">Catatan</a></li>
                 <li><a href="courses.html" class="active-link">Latihan</a></li>
-                <li><a href="Videos.html">Video</a></li>
+                <li><a href="videos.html">Video</a></li>
             </ul>
 
             <a href="index.html" class="logout-button">
@@ -478,131 +319,127 @@
     </nav>
 
     <div class="main-content">
-        <div class="card-container">
 
-            <div id="materi-selection">
-                <h2>Pilih Materi</h2>
-                <p>Pilih kategori materi yang ingin Anda pelajari</p>
-                
-                <div class="materi-grid">
-                    <div class="materi-card" data-materi="aljabar">
-                        <span class="material-icons materi-icon">book</span>
-                        <h3>Aljabar Linear</h3>
-                        <p>Vektor, matriks, determinan, dan sistem persamaan liner</p>
-                        <div class="materi-info">
-                            <span>10 Soal</span>
-                            <span>Pemula - Menengah</span>
-                        </div>
+        <div id="materi-selection">
+            <h2>Pilih Materi</h2>
+            <p>Pilih kategori materi yang ingin Anda pelajari</p>
+            
+            <div class="materi-grid">
+                <div class="materi-card" data-materi="aljabar">
+                    <span class="material-icons materi-icon">assignment</span>
+                    <h3>Aljabar Linear</h3>
+                    <p>Vektor, matriks, determinan, dan sistem persamaan liner</p>
+                    <div class="materi-info">
+                        <span>10 Soal</span>
+                        <span>Pemula - Menengah</span>
                     </div>
-                    
-                    <div class="materi-card" data-materi="kalkulus">
-                        <span class="material-icons materi-icon">book</span>
-                        <h3>Kalkulus 1</h3>
-                        <p>Limit, turunan, integral, dan aplikasi kalkulus dasar</p>
-                        <div class="materi-info">
-                            <span>10 Soal</span>
-                            <span>Pemula - Menengah</span>
-                        </div>
+                </div>
+                
+                <div class="materi-card" data-materi="kalkulus">
+                    <span class="material-icons materi-icon">assignment</span>
+                    <h3>Kalkulus 1</h3>
+                    <p>Limit, turunan, integral, dan aplikasi kalkulus dasar</p>
+                    <div class="materi-info">
+                        <span>10 Soal</span>
+                        <span>Pemula - Menengah</span>
                     </div>
                 </div>
             </div>
-
-            <div id="quiz-section">
-                <div id="quiz-header">
-                    <span id="question-count">Pertanyaan 1 dari 10</span>
-                    <span id="score-display" class="material-icons">emoji_events 0</span>
-                </div>
-                
-                <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
-
-                <div id="question-area">
-                    <p id="question-text">Hasil dari 2x + 3x = ?</p>
-                    
-                    <div id="options-container">
-                        </div>
-                </div>
-            </div>
-
-            <div id="result-section">
-                <span class="material-icons result-icon">emoji_events</span>
-                <h2>Quiz selesai!</h2>
-                <p>Sealamat, Anda telah menyelesaikan quiz</p>
-                
-                <div id="result-score">5/10</div>
-                <div id="result-bar-container">
-                    <div class="progress-bar" style="height: 12px;"><div class="progress-bar-fill" id="final-progress-fill"></div></div>
-                </div>
-                
-                <div class="result-message">
-                    <p><strong>Keep Practicing!</strong></p>
-                    <p>Jangan Menyerah! Coba pelajari materi lebih dalam dan ulangi quiz.</p>
-                </div>
-                
-                <div class="result-actions">
-                    <button id="repeat-quiz-btn" class="cta-button">Ulangi Quiz</button>
-                    <button id="home-btn" onclick="window.location.href='home.html'">Kembali ke Home</button>
-                </div>
-            </div>
-
         </div>
+
+        <div id="quiz-section">
+            <div id="quiz-header">
+                <span id="question-count">Pertanyaan 1 dari 10</span>
+                <span id="score-display">
+                    <span class="material-icons">emoji_events</span> 0
+                </span>
+            </div>
+            
+            <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+
+            <div id="question-area">
+                <p id="question-text">Hasil dari 2x + 3x = ?</p>
+                
+                <div id="options-container">
+                    </div>
+            </div>
+        </div>
+
+        <div id="result-section">
+            <span class="material-icons result-icon">emoji_events</span>
+            <h2>Quiz selesai!</h2>
+            <p>Sealamat, Anda telah menyelesaikan quiz</p>
+            
+            <div id="result-score">5/10</div>
+            <div id="result-bar-container">
+                <div class="progress-bar" style="height: 12px;"><div class="progress-bar-fill" id="final-progress-fill"></div></div>
+            </div>
+            
+            <div class="result-message">
+                <p><strong>Keep Practicing!</strong></p>
+                <p>Jangan Menyerah! Coba pelajari materi lebih dalam dan ulangi quiz.</p>
+            </div>
+            
+            <div class="result-actions">
+                <button id="repeat-quiz-btn" class="cta-button">
+                    <span class="material-icons">refresh</span> Ulangi Quiz
+                </button>
+                <button id="home-btn" onclick="window.location.href='home.html'">
+                    Kembali ke Home
+                </button>
+            </div>
+        </div>
+
     </div>
-    
-    
 
     <script>
-        // Data Kuis (Dapat ditambahkan lebih banyak di sini)
         const quizData = {
             aljabar: [
-                {
-                    question: "Hasil dari 2x + 3x = ?",
-                    options: ["3x", "5x", "6x", "7x"],
-                    answer: "5x"
-                },
-                {
-                    question: "Jika 4y - 7 = 13, berapakah nilai y?",
-                    options: ["3", "5", "6", "10"],
-                    answer: "5"
-                },
-                {
-                    question: "Hasil dari (a+b) * (a-b) adalah?",
-                    options: ["a² + b²", "2ab", "a² - b²", "a² - 2ab + b²"],
-                    answer: "a² - b²"
-                },
-                // Tambahkan 7 soal lagi untuk melengkapi 10 soal...
+                { question: "Hasil dari 2x + 3x = ?", options: ["3x", "5x", "6x", "7x"], answer: "5x" },
+                { question: "Jika 4y - 7 = 13, berapakah nilai y?", options: ["3", "5", "6", "10"], answer: "5" },
+                { question: "Hasil dari (a+b) * (a-b) adalah?", options: ["a² + b²", "2ab", "a² - b²", "a² - 2ab + b²"], answer: "a² - b²" },
+                { question: "Sederhanakan 5(x - 2) + 3x", options: ["8x - 10", "8x - 2", "5x - 10", "8x + 10"], answer: "8x - 10" },
+                { question: "Jika x = 3 dan y = 4, berapakah nilai dari 2x + y?", options: ["8", "10", "12", "16"], answer: "10" },
+                { question: "Faktorkan x² - 9", options: ["(x-3)²", "(x+3)(x-3)", "(x+3)²", "x(x-9)"], answer: "(x+3)(x-3)" },
+                { question: "Berapakah nilai x dari persamaan 2x + 5 = 15?", options: ["5", "10", "7.5", "2"], answer: "5" },
+                { question: "Jika A = [[1, 2], [3, 4]] dan B = [[5, 6], [7, 8]], berapakah A + B?", options: ["[[6, 8], [10, 12]]", "[[5, 12], [21, 32]]", "[[6, 10], [10, 12]]", "[[6, 8], [9, 12]]"], answer: "[[6, 8], [10, 12]]" },
+                { question: "Nilai determinan dari matriks [[2, 1], [4, 3]] adalah?", options: ["2", "6", "10", "4"], answer: "2" },
+                { question: "Selesaikan sistem persamaan: x + y = 7 dan x - y = 3", options: ["x=5, y=2", "x=2, y=5", "x=4, y=3", "x=3, y=4"], answer: "x=5, y=2" }
             ],
             kalkulus: [
-                {
-                    question: "Turunan pertama dari f(x) = x² adalah?",
-                    options: ["x", "2x", "x²", "1"],
-                    answer: "2x"
-                },
-                // Tambahkan 9 soal lagi...
+                { question: "Turunan pertama dari f(x) = x² adalah?", options: ["x", "2x", "x²", "1"], answer: "2x" },
+                { question: "Integral dari 2x dx adalah?", options: ["x² + C", "2x² + C", "x + C", "x³/2 + C"], answer: "x² + C" },
+                { question: "Limit x->0 dari (sin x)/x adalah?", options: ["0", "1", "tak hingga", "-1"], answer: "1" },
+                { question: "Jika f(x) = 3x³, berapakah f'(x)?", options: ["x²", "6x²", "9x²", "3x²"], answer: "9x²" },
+                { question: "Turunan dari e^x adalah?", options: ["x * e^(x-1)", "e^x", "e^x / x", "ln x"], answer: "e^x" },
+                { question: "Hasil dari integral tentu dari 1 sampai 2 untuk x dx adalah?", options: ["1/2", "3/2", "2", "3"], answer: "3/2" },
+                { question: "Apa definisi dari turunan?", options: ["Luas di bawah kurva", "Laju perubahan sesaat", "Total akumulasi", "Nilai maksimum fungsi"], answer: "Laju perubahan sesaat" },
+                { question: "Limit dari konstanta c adalah?", options: ["0", "1", "c", "tak hingga"], answer: "c" },
+                { question: "Turunan dari ln(x) adalah?", options: ["x", "1/x", "e^x", "ln x"], answer: "1/x" },
+                { question: "Metode apa yang digunakan untuk mencari luas di antara dua kurva?", options: ["Diferensiasi", "Substitusi", "Integrasi Tentu", "Aturan Rantai"], answer: "Integrasi Tentu" }
             ]
         };
 
-        // Variabel Status Kuis
         let currentMateri = null;
         let currentQuiz = [];
         let currentQuestionIndex = 0;
         let score = 0;
         let isAnswerLocked = false;
 
-        // Elemen DOM
         const materiSelection = document.getElementById('materi-selection');
         const quizSection = document.getElementById('quiz-section');
         const resultSection = document.getElementById('result-section');
 
+        // Elemen DOM untuk kuis setelah dimuat (pastikan ID sesuai)
         const questionCount = document.getElementById('question-count');
         const scoreDisplay = document.getElementById('score-display');
         const progressFill = document.getElementById('progress-fill');
         const questionText = document.getElementById('question-text');
         const optionsContainer = document.getElementById('options-container');
 
+        // Elemen DOM untuk hasil setelah dimuat
         const resultScore = document.getElementById('result-score');
         const finalProgressFill = document.getElementById('final-progress-fill');
-        const repeatQuizBtn = document.getElementById('repeat-quiz-btn');
-
-        // --- Fungsi Utama ---
 
         function initQuiz(materi) {
             currentMateri = materi;
@@ -610,11 +447,16 @@
             currentQuestionIndex = 0;
             score = 0;
 
-            // Transisi tampilan
             materiSelection.style.display = 'none';
             resultSection.style.display = 'none';
             quizSection.style.display = 'block';
             
+            const repeatQuizBtn = document.getElementById('repeat-quiz-btn');
+            if (repeatQuizBtn) {
+                 repeatQuizBtn.removeEventListener('click', repeatQuizHandler);
+                 repeatQuizBtn.addEventListener('click', repeatQuizHandler);
+            }
+
             loadQuestion();
         }
 
@@ -627,22 +469,20 @@
             const question = currentQuiz[currentQuestionIndex];
             isAnswerLocked = false;
             
-            // Perbarui Header dan Progress Bar
             questionCount.textContent = `Pertanyaan ${currentQuestionIndex + 1} dari ${currentQuiz.length}`;
             scoreDisplay.innerHTML = `<span class="material-icons">emoji_events</span> ${score}`;
             progressFill.style.width = `${((currentQuestionIndex) / currentQuiz.length) * 100}%`;
 
-            questionText.textContent = question.question;
+            questionText.innerHTML = question.question.replace(/\^/g, '<sup>').replace(/\[/g, '<code>').replace(/\]/g, '</code>'); 
             optionsContainer.innerHTML = '';
 
-            // Tampilkan Pilihan Jawaban
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.classList.add('option-item');
                 optionElement.setAttribute('data-answer', option);
                 optionElement.innerHTML = `
                     <span class="option-letter">${String.fromCharCode(65 + index)}</span>
-                    <span class="option-text">${option}</span>
+                    <span class="option-text">${option.replace(/\^/g, '<sup>').replace(/\[/g, '<code>').replace(/\]/g, '</code>')}</span>
                     <span class="status-icon material-icons" style="display:none;"></span>
                 `;
                 optionElement.addEventListener('click', handleAnswerClick);
@@ -658,18 +498,15 @@
             const selectedAnswer = selectedOption.getAttribute('data-answer');
             const correctAnswer = currentQuiz[currentQuestionIndex].answer;
 
-            // Cek Jawaban
             if (selectedAnswer === correctAnswer) {
                 score++;
                 selectedOption.classList.add('correct');
                 selectedOption.querySelector('.status-icon').textContent = 'check_circle';
-                // Update skor langsung
                 scoreDisplay.innerHTML = `<span class="material-icons">emoji_events</span> ${score}`;
             } else {
                 selectedOption.classList.add('incorrect');
                 selectedOption.querySelector('.status-icon').textContent = 'cancel';
                 
-                // Tunjukkan jawaban yang benar
                 document.querySelectorAll('.option-item').forEach(item => {
                     if (item.getAttribute('data-answer') === correctAnswer) {
                         item.classList.add('correct');
@@ -680,11 +517,10 @@
             
             selectedOption.querySelector('.status-icon').style.display = 'inline';
             
-            // Lanjut ke pertanyaan berikutnya setelah jeda singkat
             setTimeout(() => {
                 currentQuestionIndex++;
                 loadQuestion();
-            }, 1500); // Jeda 1.5 detik
+            }, 1500);
         }
 
         function showResult() {
@@ -695,20 +531,14 @@
             const percentage = (score / totalQuestions) * 100;
 
             resultScore.textContent = `${score}/${totalQuestions}`;
-            
-            // Perbarui progress bar hasil akhir
             finalProgressFill.style.width = `${percentage}%`;
         }
 
-        function resetQuiz() {
-            // Kembali ke halaman Pilih Materi
-            resultSection.style.display = 'none';
-            materiSelection.style.display = 'block';
+        function repeatQuizHandler() {
+            initQuiz(currentMateri);
         }
-
-        // --- Event Listeners ---
-
-        // Inisialisasi Kuis ketika kartu materi diklik
+        
+        // Event Listeners di materi-selection
         document.querySelectorAll('.materi-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 const materi = e.currentTarget.getAttribute('data-materi');
@@ -716,53 +546,10 @@
             });
         });
 
-        // Event Listener untuk tombol Ulangi Quiz
-        repeatQuizBtn.addEventListener('click', () => {
-             // Cukup panggil initQuiz lagi dengan materi yang sama
-             initQuiz(currentMateri);
-        });
-
         // Inisialisasi tampilan awal
-        resetQuiz();
+        materiSelection.style.display = 'block';
+        quizSection.style.display = 'none';
+        resultSection.style.display = 'none';
     </script>
-
-    <!-- Chat Modal -->
-    <div id="chatModal" class="chat-modal">
-        <div class="chat-container">
-            <div class="chat-header">
-                <div class="chat-avatar">MA</div>
-                <div class="chat-info">
-                    <h3>Mas Amba</h3>
-                    <p>AI Tutor Matematika</p>
-                </div>
-                <button id="closeChatBtn" class="chat-close">✕</button>
-            </div>
-            
-            <div id="chatMessages" class="chat-messages">
-                <div class="message bot-message">
-                    <div class="message-avatar">MA</div>
-                    <div class="message-content">
-                        <div class="message-text">Halo! Saya Mas Amba, siap membantu belajar matematika. Ada soal yang mau ditanyakan?</div>
-                        <div class="message-time">Sekarang</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="chat-input-area">
-                <input type="text" id="chatInput" placeholder="Ketik pertanyaan matematika...">
-                <button id="sendChatBtn" class="send-btn">
-                    <span>Kirim</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Floating Chat Button -->
-    <button id="chatBtn" class="floating-chat-btn">
-        💬
-    </button>
-
-    <!-- Include script.js for chat functionality -->
-    <script src="script.js"></script>
 </body>
 </html>
