@@ -128,16 +128,17 @@
             <h4>Kalkulus II</h4>
             <p>8 modul • 6 jam</p>
           </div>
-          <div class="course">
+          <div class="course" id="examPrep" style="cursor: pointer;">
             <h4>Persiapan Ujian</h4>
             <p>Belajar cepat & latihan soal</p>
+            <small style="color: var(--accent); font-weight: 600;"> Download PDF tersedia</small>
           </div>
         </div>
 
         <div style="margin-top:14px;background:linear-gradient(90deg,#fff,#fbfdff);padding:12px;border-radius:10px;border:1px solid #eef2ff">
           <div style="font-weight:700">Butuh bantuan?</div>
           <div style="font-size:13px;color:var(--muted);margin-top:6px">Chat dengan tutor atau lihat snippet ringkasan.</div>
-          <div style="margin-top:10px;display:flex;gap:8px">
+          <div style="margin-top:12px;display:flex;gap:8px">
             <button class="kbd" id="chatBtn">Chat</button>
             <button class="cta" style="background:#10b981">Coba Quiz</button>
           </div>
@@ -187,6 +188,73 @@
     </div>
   </div>
 
+  <!-- Exam Preparation Modal -->
+  <div id="examModal" class="exam-modal" style="display: none;">
+    <div class="exam-container">
+      <div class="exam-header">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Persiapan Ujian - Download PDF</h3>
+        <button id="closeExamBtn" class="exam-close">✕</button>
+      </div>
+      
+      <div class="exam-content">
+        <div class="exam-section">
+          <h4>📚 Paket Soal Tersedia</h4>
+          <div class="exam-packages">
+            <div class="exam-package">
+              <div class="package-info">
+                <h5>Aljabar & Persamaan</h5>
+                <p>50 soal dengan pembahasan lengkap</p>
+              </div>
+              <button class="btn-download" onclick="downloadPDF('aljabar')">
+                <i class="fa-solid fa-download"></i> Download PDF
+              </button>
+            </div>
+            
+            <div class="exam-package">
+              <div class="package-info">
+                <h5>Kalkulus Dasar</h5>
+                <p>45 soal limit, turunan & integral</p>
+              </div>
+              <button class="btn-download" onclick="downloadPDF('kalkulus')">
+                <i class="fa-solid fa-download"></i> Download PDF
+              </button>
+            </div>
+            
+            <div class="exam-package">
+              <div class="package-info">
+                <h5>Geometri & Trigonometri</h5>
+                <p>40 soal dengan diagram visual</p>
+              </div>
+              <button class="btn-download" onclick="downloadPDF('geometri')">
+                <i class="fa-solid fa-download"></i> Download PDF
+              </button>
+            </div>
+            
+            <div class="exam-package">
+              <div class="package-info">
+                <h5>Statistika & Probabilitas</h5>
+                <p>35 soal analisis data & peluang</p>
+              </div>
+              <button class="btn-download" onclick="downloadPDF('statistika')">
+                <i class="fa-solid fa-download"></i> Download PDF
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="exam-tips">
+          <h4>💡 Tips Persiapan</h4>
+          <ul>
+            <li>Download PDF sesuai materi yang akan diujikan</li>
+            <li>Kerjakan soal secara bertahap, jangan terburu-buru</li>
+            <li>Review pembahasan untuk memahami konsep</li>
+            <li>Gunakan chatbot Mas Amba jika ada yang belum dipahami</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Script -->
   <script src="script.js"></script>
   <script>
@@ -195,6 +263,58 @@
       localStorage.removeItem("loggedInUser");
       window.location.href = "index.html";
     });
+
+    // Exam Preparation Modal functionality
+    const examPrep = document.getElementById('examPrep');
+    const examModal = document.getElementById('examModal');
+    const closeExamBtn = document.getElementById('closeExamBtn');
+
+    examPrep.addEventListener('click', function() {
+      examModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeExamBtn.addEventListener('click', function() {
+      examModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    examModal.addEventListener('click', function(e) {
+      if (e.target === examModal) {
+        examModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // PDF Download function
+    function downloadPDF(subject) {
+      // Show loading state
+      const btn = event.target.closest('.btn-download');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Downloading...';
+      btn.disabled = true;
+
+      // Simulate API call to backend
+      setTimeout(() => {
+        // Replace this URL with your actual backend endpoint
+        const downloadUrl = `/api/download-pdf/${subject}`;
+        
+        // Create a temporary link element to trigger download
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = `${subject}-soal-ujian.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Reset button state
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+
+        // Show success message
+        alert(`✅ PDF ${subject} berhasil didownload!`);
+      }, 1500);
+    }
   </script>
 
 </body>
