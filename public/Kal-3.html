@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Turunan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatu-notes</span>
+                <span class="tagline">Pembelajaran Interaktif</span>
+            </div>
+        </div>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="videos.html">Video</a></li>
+            </ul>
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        
+        <div class="main-content-detail">
+            <div class="content-header">
+                <p>Kalkulus I > Diferensiasi</p>
+                <h1>Dasar-Dasar Turunan (Diferensiasi)</h1>
+                <p>Mencakup definisi, interpretasi, dan semua aturan utama yang diperlukan untuk menghitung turunan fungsi.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Definisi dan Interpretasi</h2>
+                
+                <h3>Definisi</h3>
+                <p>Turunan dari fungsi $f(x)$, dilambangkan $f'(x)$ atau $\frac{dy}{dx}$, didefinisikan sebagai limit dari kemiringan garis sekan saat jarak antara dua titik mendekati nol. Ini adalah definisi formal turunan:</p>
+                <div class="formula-box">
+                    $$ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} $$
+                </div>
+
+                <h3>Interpretasi</h3>
+                <p>Turunan $f'(x)$ memiliki dua interpretasi utama:</p>
+                <ul>
+                    <li>**Kemiringan Garis Singgung:** $f'(a)$ adalah kemiringan garis singgung pada grafik $f(x)$ di titik $x=a$. 
+
+[Image of a graph showing the tangent line at a point]
+</li>
+                    <li>**Laju Perubahan Sesaat:** Turunan mengukur seberapa cepat nilai fungsi berubah pada saat tertentu. Dalam fisika, turunan posisi adalah kecepatan (laju perubahan posisi), dan turunan kecepatan adalah percepatan (laju perubahan kecepatan).</li>
+                </ul>
+            </div>
+            
+            <hr>
+
+            <div class="content-section">
+                <h2>Aturan Turunan Dasar (Rumus Turunan)</h2>
+                
+                <h3>Aturan Pangkat (Power Rule)</h3>
+                <p>Jika $f(x) = x^n$, maka $f'(x) = n x^{n-1}$.</p>
+
+                <h3>Aturan Produk (Product Rule)</h3>
+                <p>Jika $h(x) = f(x)g(x)$, maka $h'(x) = f'(x)g(x) + f(x)g'(x)$.</p>
+                
+                <h3>Aturan Hasil Bagi (Quotient Rule)</h3>
+                <p>Jika $h(x) = \frac{f(x)}{g(x)}$, maka $h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$.</p>
+                
+                <h3>Aturan Rantai (Chain Rule)</h3>
+                <p>Digunakan untuk turunan fungsi komposisi. Jika $y = f(g(x))$, maka $\frac{dy}{dx} = f'(g(x)) \cdot g'(x)$.</p>
+            </div>
+
+            <hr>
+            
+            <div class="content-section">
+                <h2>Teknik Diferensiasi Lanjutan</h2>
+
+                <h3>Turunan Orde Lebih Tinggi</h3>
+                <p>Turunan kedua, ketiga, dan seterusnya. Turunan kedua dari $f(x)$ adalah turunan dari $f'(x)$, dilambangkan $f''(x)$ atau $\frac{d^2y}{dx^2}$. Turunan orde lebih tinggi digunakan dalam menentukan kecekungan grafik.</p>
+                
+                <h3>Diferensiasi Implisit</h3>
+                <p>Digunakan ketika variabel $y$ tidak dapat diisolasi secara eksplisit dalam persamaan. Kita mengambil turunan dari kedua sisi persamaan terhadap $x$, memperlakukan $y$ sebagai fungsi dari $x$ dan menggunakan Aturan Rantai (setiap kali mengambil turunan $y$, tambahkan faktor $\frac{dy}{dx}$).</p>
+
+                <h3>Diferensiasi Logaritma</h3>
+                <p>Digunakan untuk fungsi yang melibatkan variabel di basis dan eksponen ($y=f(x)^{g(x)}$) atau fungsi yang sangat rumit (perkalian/pembagian banyak suku). Langkahnya adalah mengambil $\ln$ (logaritma alami) pada kedua sisi persamaan, menggunakan sifat logaritma untuk menyederhanakan, lalu melakukan diferensiasi implisit.</p>
+            </div>
+
+            <hr>
+            
+            <div class="content-section">
+                <h2>Turunan Fungsi Khusus</h2>
+
+                <h3>Fungsi Trigonometri</h3>
+                <ul>
+                    <li>$\frac{d}{dx} (\sin x) = \cos x$</li>
+                    <li>$\frac{d}{dx} (\cos x) = -\sin x$</li>
+                    <li>$\frac{d}{dx} (\tan x) = \sec^2 x$</li>
+                    <li>$\frac{d}{dx} (\sec x) = \sec x \tan x$</li>
+                </ul>
+                
+                <h3>Fungsi Eksponensial dan Logaritma</h3>
+                <ul>
+                    <li>$\frac{d}{dx} (e^x) = e^x$</li>
+                    <li>$\frac{d}{dx} (b^x) = b^x \ln b$</li>
+                    <li>$\frac{d}{dx} (\ln x) = \frac{1}{x}$</li>
+                    <li>$\frac{d}{dx} (\log_b x) = \frac{1}{x \ln b}$</li>
+                </ul>
+                
+                <h3>Fungsi Trigonometri Invers</h3>
+                <p>Turunan dari fungsi-fungsi invers seperti $\arcsin x$ dan $\arctan x$ seringkali melibatkan akar kuadrat.</p>
+                <div class="formula-box">
+                    $$ \frac{d}{dx} (\arcsin x) = \frac{1}{\sqrt{1 - x^2}} $$
+                    $$ \frac{d}{dx} (\arctan x) = \frac{1}{1 + x^2} $$
+                </div>
+                
+                <h3>Fungsi Trigonometri Hiperbolik</h3>
+                <p>Fungsi-fungsi ini ($\sinh x, \cosh x, \tanh x$) adalah kombinasi eksponensial. Turunan mereka mirip dengan fungsi trigonometri biasa:</p>
+                <ul>
+                    <li>$\frac{d}{dx} (\sinh x) = \cosh x$</li>
+                    <li>$\frac{d}{dx} (\cosh x) = \sinh x$</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            
+            <div class="sidebar-card" style="padding: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                <div class="profile-widget">
+                    <div class="profile">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.l7976B_FoD-Bh9a-LLSFsQHaHa?pid=Api&P=0&h=180" alt="Profile">
+                        <div class="profile-name-only">
+                            <strong>Mas Amba</strong>
+                            <p>Dosen Ngawi</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="materi-populer-card" style="box-shadow: none; border-radius: 0 0 10px 10px; margin-top: 0; padding: 15px;">
+                    <h3>Materi Populer</h3>
+                    <div class="sidebar-links">
+                        <a href="materi.html">Aljabar Linear <span style="float: right; color: #999;">5 modul | 3 jam</span></a>
+                        <a href="materi.html">Kalkulus 1 <span style="float: right; color: #999;">5 modul | 4 jam</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="ai-button-placeholder">AI</div>
+
+</body>
+</html>

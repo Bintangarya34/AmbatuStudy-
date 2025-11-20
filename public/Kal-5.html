@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Integral</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatu-notes</span>
+                <span class="tagline">Pembelajaran Interaktif</span>
+            </div>
+        </div>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="videos.html">Video</a></li>
+            </ul>
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        
+        <div class="main-content-detail">
+            <div class="content-header">
+                <p>Kalkulus I > Integrasi</p>
+                <h1>Dasar-Dasar Integral</h1>
+                <p>Memahami integral sebagai antiturunan dan alat untuk menghitung luas di bawah kurva, sesuai dengan Teorema Dasar Kalkulus.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Definisi Integral</h2>
+                <p>Integral adalah konsep utama dalam Kalkulus yang memiliki dua interpretasi utama:</p>
+                <ul>
+                    <li>**Antiturunan:** Integral adalah kebalikan dari turunan. Jika $F'(x) = f(x)$, maka $F(x)$ adalah antiturunan dari $f(x)$.</li>
+                    <li>**Luas di Bawah Kurva:** Integral tentu digunakan untuk menghitung luas area bersih antara grafik fungsi dan sumbu-$x$ pada interval tertentu. 
+
+[Image of the area under a curve represented by a definite integral]
+</li>
+                </ul>
+                <div class="formula-box">
+                    $$ \text{Jika } F'(x) = f(x) \text{, maka } \int f(x) dx = F(x) + C $$
+                    <p class="math-note">C adalah konstanta integrasi (Konstanta Antiturunan)</p>
+                </div>
+            </div>
+            
+            <hr>
+
+            <div class="content-section">
+                <h2>Integral Tak Tentu (Indefinite Integral)</h2>
+                <p>**Integral Tak Tentu** adalah istilah lain untuk **Antiturunan Umum**. Hasilnya selalu berupa fungsi ditambah konstanta integrasi $C$.</p>
+                <h3>Rumus Dasar Integral Pangkat:</h3>
+                <div class="formula-box">
+                    $$ \int x^n dx = \frac{x^{n+1}}{n+1} + C, \text{ untuk } n \ne -1 $$
+                </div>
+                <p>Rumus ini adalah kebalikan langsung dari Aturan Pangkat pada turunan.</p>
+            </div>
+
+            <hr>
+
+            <div class="content-section">
+                <h2>Integral Tentu (Definite Integral)</h2>
+                <p>**Integral Tentu** memiliki batas integrasi ($a$ dan $b$) dan hasilnya adalah sebuah **nilai numerik** yang mewakili luas bersih di bawah kurva $f(x)$ dari $x=a$ hingga $x=b$.</p>
+                <div class="formula-box">
+                    $$ \int_a^b f(x) dx $$
+                    <p class="math-note">$a$ adalah batas bawah, $b$ adalah batas atas.</p>
+                </div>
+                <h3>Mengevaluasi Integral Tentu</h3>
+                <p>Dilakukan menggunakan **Teorema Dasar Kalkulus** (dibahas di bagian selanjutnya): $\int_a^b f(x) dx = F(b) - F(a)$.</p>
+            </div>
+
+            <hr>
+
+            <div class="content-section">
+                <h2>Teorema Dasar Kalkulus (Fundamental Theorem of Calculus)</h2>
+                <p>Teorema ini menghubungkan dua cabang utama kalkulus: diferensiasi (turunan) dan integrasi (integral).</p>
+                
+                <h3>Bagian 1 (Hubungan Turunan dan Integral):</h3>
+                <p>Jika $f$ kontinu pada $[a, b]$, maka fungsi $g(x) = \int_a^x f(t) dt$ memiliki turunan $g'(x) = f(x)$. Ini menunjukkan bahwa diferensiasi dan integrasi adalah proses yang berlawanan.</p>
+
+                <h3>Bagian 2 (Evaluasi Integral Tentu):</h3>
+                <p>Ini adalah alat komputasi utama. Jika $f$ kontinu pada $[a, b]$ dan $F$ adalah antiturunan dari $f$, maka:</p>
+                <div class="formula-box">
+                    $$ \int_a^b f(x) dx = F(b) - F(a) $$
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="content-section">
+                <h2>Aturan Substitusi (u-Substitution)</h2>
+                <p>**Aturan Substitusi** adalah teknik integrasi yang paling penting dan merupakan kebalikan dari **Aturan Rantai** pada turunan. Tujuannya adalah menyederhanakan integral kompleks menjadi bentuk dasar dengan memperkenalkan variabel baru $u$.</p>
+                <ol>
+                    <li>Pilih ekspresi $u$ (biasanya bagian dalam fungsi komposisi atau di bawah akar).</li>
+                    <li>Hitung turunan $\frac{du}{dx}$ dan tentukan $dx$ dalam istilah $du$.</li>
+                    <li>Substitusikan $u$ dan $dx$ ke dalam integral.</li>
+                    <li>Selesaikan integral terhadap $u$.</li>
+                    <li>(Untuk integral tak tentu) Gantikan $u$ kembali dengan ekspresi aslinya dalam $x$.</li>
+                    <li>(Untuk integral tentu) Ubah batas integrasi $a$ dan $b$ menjadi batas dalam istilah $u$ (yaitu $u(a)$ dan $u(b)$).</li>
+                </ol>
+                </div>
+
+        </div>
+
+        <div class="sidebar">
+            
+            <div class="sidebar-card" style="padding: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                <div class="profile-widget">
+                    <div class="profile">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.l7976B_FoD-Bh9a-LLSFsQHaHa?pid=Api&P=0&h=180" alt="Profile">
+                        <div class="profile-name-only">
+                            <strong>Mas Amba</strong>
+                            <p>Dosen Ngawi</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="materi-populer-card" style="box-shadow: none; border-radius: 0 0 10px 10px; margin-top: 0; padding: 15px;">
+                    <h3>Materi Populer</h3>
+                    <div class="sidebar-links">
+                        <a href="materi.html">Aljabar Linear <span style="float: right; color: #999;">5 modul | 3 jam</span></a>
+                        <a href="materi.html">Kalkulus 1 <span style="float: right; color: #999;">5 modul | 4 jam</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="ai-button-placeholder">AI</div>
+
+</body>
+</html>

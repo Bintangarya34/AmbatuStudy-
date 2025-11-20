@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Limit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatu-notes</span>
+                <span class="tagline">Pembelajaran Interaktif</span>
+            </div>
+        </div>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="videos.html">Video</a></li>
+            </ul>
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        
+        <div class="main-content-detail">
+            <div class="content-header">
+                <p>Kalkulus I > Limit</p>
+                <h1>Konsep Dasar Limit</h1>
+                <p>Memahami batasan nilai fungsi saat mendekati suatu titik, konsep fundamental Kalkulus.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Konsep dan Definisi</h2>
+                <p>Secara intuitif, **limit** adalah nilai yang didekati oleh output ($f(x)$) suatu fungsi saat input ($x$) mendekati nilai tertentu ($a$). Secara matematis, kita menulisnya:</p>
+                <div class="formula-box">
+                    $$ \lim_{x \to a} f(x) = L $$
+                </div>
+                <p>Ini berarti nilai $f(x)$ mendekati $L$ saat $x$ mendekati $a$, tetapi tidak harus sama dengan $f(a)$ (yaitu, fungsi bisa memiliki lubang di $x=a$).</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>Limit Satu Sisi (One-Sided Limits)</h2>
+                <p>Limit satu sisi digunakan ketika kita mendekati suatu titik hanya dari satu arah, biasanya penting pada titik diskontinuitas atau pada fungsi sepotong-sepotong.</p>
+                <ul>
+                    <li>**Limit dari Kiri:** $\lim_{x \to a^-} f(x) = L_1$ (Mendekati $a$ dari nilai $x$ yang lebih kecil).</li>
+                    <li>**Limit dari Kanan:** $\lim_{x \to a^+} f(x) = L_2$ (Mendekati $a$ dari nilai $x$ yang lebih besar).</li>
+                </ul>
+                <p>Limit dua sisi ($\lim_{x \to a} f(x)$) ada jika dan hanya jika limit dari kiri sama dengan limit dari kanan ($L_1 = L_2$). 
+
+[Image of a graph showing a jump discontinuity with different left and right limits]
+</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Komputasi Limit (Aljabar)</h2>
+                <p>Sebagian besar limit dihitung menggunakan **Substitusi Langsung**. Jika $f(a)$ terdefinisi, maka $\lim_{x \to a} f(x) = f(a)$.</p>
+                <p>Jika substitusi menghasilkan **Bentuk Tak Tentu** ($0/0$ atau $\infty/\infty$), gunakan teknik berikut:</p>
+                <ol>
+                    <li>**Pemfaktoran:** Batalkan faktor yang menyebabkan pembagian nol.</li>
+                    <li>**Mengalikan dengan Sekawan (Conjugate):** Digunakan untuk ekspresi yang melibatkan akar kuadrat.</li>
+                    <li>**Aturan L'Hospital** (lihat bagian selanjutnya).</li>
+                </ol>
+            </div>
+            
+            <div class="content-section">
+                <h2>Kontinuitas (Continuity)</h2>
+                <p>**Fungsi $f(x)$ kontinu pada titik $x=a$** jika memenuhi tiga syarat berikut:</p>
+                <ol>
+                    <li>$f(a)$ harus terdefinisi (ada).</li>
+                    <li>$\lim_{x \to a} f(x)$ harus ada.</li>
+                    <li>$\lim_{x \to a} f(x) = f(a)$.</li>
+                </ol>
+                <p>Fungsi yang tidak kontinu disebut **diskontinu** (contoh: *jump*, *hole*, *vertical asymptote*).</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Limit yang Melibatkan Ketakhinggaan</h2>
+                <p>Ini mencakup dua kasus penting:</p>
+                <ol>
+                    <li>**Limit Tak Terhingga:** Jika $\lim_{x \to a} f(x) = \pm \infty$. Ini menunjukkan adanya **Asimtot Vertikal** di $x=a$.</li>
+                    <li>**Limit di Tak Terhingga:** Jika $\lim_{x \to \pm \infty} f(x) = L$. Ini menunjukkan adanya **Asimtot Horizontal** di $y=L$.</li>
+                </ol>
+                <p>Untuk Asimtot Horizontal pada fungsi rasional, bandingkan derajat polinomial pada pembilang dan penyebut (misalnya, jika derajat sama, limitnya adalah rasio koefisien utama).</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>Aturan L'Hospital</h2>
+                <p>**Aturan L'Hospital** adalah alat yang ampuh untuk menghitung limit yang menghasilkan bentuk tak tentu $0/0$ atau $\infty/\infty$. Aturan ini menyatakan:</p>
+                <div class="formula-box">
+                    Jika $\lim_{x \to a} \frac{f(x)}{g(x)}$ menghasilkan $0/0$ atau $\infty/\infty$, maka:
+                    $$ \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} $$
+                </div>
+                <p>Kita dapat menerapkan aturan ini berulang kali selama kita masih mendapatkan bentuk tak tentu.</p>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            
+            <div class="sidebar-card" style="padding: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                <div class="profile-widget">
+                    <div class="profile">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.l7976B_FoD-Bh9a-LLSFsQHaHa?pid=Api&P=0&h=180" alt="Profile">
+                        <div class="profile-name-only">
+                            <strong>Mas Amba</strong>
+                            <p>Dosen Ngawi</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="materi-populer-card" style="box-shadow: none; border-radius: 0 0 10px 10px; margin-top: 0; padding: 15px;">
+                    <h3>Materi Populer</h3>
+                    <div class="sidebar-links">
+                        <a href="materi.html">Aljabar Linear <span style="float: right; color: #999;">5 modul | 3 jam</span></a>
+                        <a href="materi.html">Kalkulus 1 <span style="float: right; color: #999;">5 modul | 4 jam</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="ai-button-placeholder">AI</div>
+
+</body>
+</html>

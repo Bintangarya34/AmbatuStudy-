@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Grafik Umum</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatu-notes</span>
+                <span class="tagline">Pembelajaran Interaktif</span>
+            </div>
+        </div>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="videos.html">Video</a></li>
+            </ul>
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        
+        <div class="main-content-detail">
+            <div class="content-header">
+                <p>Aljabar Linear > Grafik Umum</p>
+                <h1>Grafik Fungsi Umum dan Transformasi</h1>
+                <p>Mencakup bentuk-bentuk kerucut (conics) dan bagaimana grafik dapat dipindahkan atau dicerminkan.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Parabola</h2>
+                <p>Grafik dari fungsi kuadrat $y = ax^2 + bx + c$. Memiliki bentuk seperti huruf U yang terbuka ke atas ($a>0$) atau ke bawah ($a<0$).</p>
+            </div>
+            
+            <div class="content-section">
+                <h2>Elips</h2>
+                <p>Elips adalah himpunan semua titik di mana jumlah jarak dari dua titik fokus tetap konstan. Bentuknya seperti lingkaran yang dipipihkan.</p>
+                <div class="formula-box">
+                    $$ \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1 $$
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Hiperbola</h2>
+                <p>Mirip dengan elips, tetapi merupakan himpunan semua titik di mana selisih jarak dari dua titik fokus tetap konstan. Grafiknya terdiri dari dua kurva terpisah (cabang).</p>
+                <div class="formula-box">
+                    $$ \frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1 \text{ (Hiperbola horizontal)} $$
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Fungsi Dasar</h2>
+                
+                <h3>Nilai Mutlak ($y = |x|$)</h3>
+                <p>Grafik berbentuk huruf **V** yang simetris terhadap sumbu-$y$. 
+
+[Image of graph of absolute value function y=|x|]
+</p>
+
+                <h3>Akar Kuadrat ($y = \sqrt{x}$)</h3>
+                <p>Hanya terdefinisi untuk $x \ge 0$. Grafiknya dimulai dari titik asal dan meningkat perlahan.</p>
+                
+                <h3>Fungsi Konstan ($y = c$)</h3>
+                <p>Menghasilkan garis horizontal lurus pada nilai $y$ yang sama dengan konstanta $c$.</p>
+                
+                <h3>Fungsi Rasional ($y = 1/x$)</h3>
+                <p>Sering memiliki *asymptote* (garis yang didekati grafik tetapi tidak pernah disentuh), baik vertikal maupun horizontal. 
+
+[Image of graph of rational function y=1/x]
+</p>
+            </div>
+
+            <hr/>
+
+            <div class="content-section">
+                <h2>Transformasi Grafik</h2>
+                
+                <h3>Pergeseran (Shifting)</h3>
+                <p>Menggeser seluruh grafik tanpa mengubah bentuknya. Pergeseran horisontal ditunjukkan oleh $f(x-h)$ (ke kanan jika $h>0$) dan pergeseran vertikal oleh $f(x) + k$ (ke atas jika $k>0$).</p>
+                
+                <h3>Refleksi (Reflection)</h3>
+                <p>Mencerminkan grafik melintasi sumbu. $-f(x)$ adalah refleksi terhadap sumbu-$x$, sedangkan $f(-x)$ adalah refleksi terhadap sumbu-$y$.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Simetri</h2>
+                <p>Simetri grafik terhadap sumbu-$y$ (fungsi genap) terjadi jika $f(-x) = f(x)$. Simetri terhadap titik asal (fungsi ganjil) terjadi jika $f(-x) = -f(x)$.</p>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            
+            <div class="sidebar-card" style="padding: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                <div class="profile-widget">
+                    <div class="profile">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.l7976B_FoD-Bh9a-LLSFsQHaHa?pid=Api&P=0&h=180" alt="Profile">
+                        <div class="profile-name-only">
+                            <strong>Mas Amba</strong>
+                            <p>Dosen Ngawi</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="materi-populer-card" style="box-shadow: none; border-radius: 0 0 10px 10px; margin-top: 0; padding: 15px;">
+                    <h3>Materi Populer</h3>
+                    <div class="sidebar-links">
+                        <a href="materi.html">Aljabar Linear <span style="float: right; color: #999;">5 modul | 3 jam</span></a>
+                        <a href="materi.html">Kalkulus 1 <span style="float: right; color: #999;">5 modul | 4 jam</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="ai-button-placeholder">AI</div>
+
+</body>
+</html>

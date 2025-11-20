@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Aplikasi Turunan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatu-notes</span>
+                <span class="tagline">Pembelajaran Interaktif</span>
+            </div>
+        </div>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="videos.html">Video</a></li>
+            </ul>
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        
+        <div class="main-content-detail">
+            <div class="content-header">
+                <p>Kalkulus I > Diferensiasi</p>
+                <h1>Aplikasi Turunan</h1>
+                <p>Penggunaan turunan pertama dan kedua untuk menganalisis bentuk grafik, laju perubahan, dan menyelesaikan masalah optimasi.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Laju Terkait (Related Rates)</h2>
+                <p>Laju Terkait adalah masalah di mana laju perubahan satu atau lebih kuantitas diketahui, dan kita diminta mencari laju perubahan kuantitas lain yang terkait. Langkah kuncinya adalah:</p>
+                <ol>
+                    <li>Tentukan variabel dan laju yang diketahui ($\frac{dx}{dt}, \frac{dy}{dt}$, dll.).</li>
+                    <li>Temukan persamaan yang menghubungkan semua variabel.</li>
+                    <li>Ambil turunan implisit dari persamaan tersebut terhadap **waktu** ($t$).</li>
+                    <li>Substitusikan nilai yang diketahui untuk mencari laju yang dicari.</li>
+                    </ol>
+            </div>
+            
+            <hr>
+
+            <div class="content-section">
+                <h2>Analisis Fungsi: Nilai Ekstrim dan Titik Kritis</h2>
+                
+                <h3>Titik Kritis (Critical Points)</h3>
+                <p>Titik $x=c$ adalah titik kritis jika $f'(c) = 0$ atau $f'(c)$ tidak terdefinisi (undefined). Titik kritis adalah kandidat tunggal untuk terjadinya nilai maksimum atau minimum lokal (ekstrema lokal).</p>
+                
+                <h3>Nilai Minimum dan Maksimum (Ekstrema Lokal/Mutlak)</h3>
+                <ul>
+                    <li>**Ekstrema Lokal:** Terjadi pada titik kritis. Uji turunan pertama atau kedua dapat digunakan untuk mengklasifikasikannya.</li>
+                    <li>**Ekstrema Mutlak:** Nilai minimum atau maksimum fungsi pada interval tertentu (biasanya interval tertutup $[a, b]$). Untuk menemukannya, bandingkan nilai fungsi di **titik kritis** dan di **titik ujung** interval ($f(a)$ dan $f(b)$).</li>
+                </ul>
+            </div>
+
+            <hr>
+            
+            <div class="content-section">
+                <h2>Fungsi Naik, Turun, Konkavitas, dan Titik Infleksi</h2>
+
+                <h3>Fungsi Naik dan Turun (Menggunakan $f'(x)$)</h3>
+                <p>Turunan pertama menentukan apakah fungsi **naik** atau **turun**:</p>
+                <ul>
+                    <li>Jika $f'(x) > 0$ pada interval, maka $f(x)$ **naik** pada interval tersebut.</li>
+                    <li>Jika $f'(x) < 0$ pada interval, maka $f(x)$ **turun** pada interval tersebut.</li>
+                </ul>
+                <h3>Konkavitas (Menggunakan $f''(x)$)</h3>
+                <p>Turunan kedua menentukan **konkavitas** (kelengkungan) grafik:</p>
+                <ul>
+                    <li>Jika $f''(x) > 0$, grafik **cekung ke atas** (concave up).</li>
+                    <li>Jika $f''(x) < 0$, grafik **cekung ke bawah** (concave down).</li>
+                </ul>
+
+                <h3>Titik Infleksi (Inflection Points)</h3>
+                <p>Titik di mana grafik fungsi mengubah konkavitasnya (dari cekung ke atas menjadi cekung ke bawah, atau sebaliknya). Ini terjadi pada titik di mana $f''(x) = 0$ atau $f''(x)$ tidak terdefinisi.</p>
+                </div>
+
+            <hr>
+            
+            <div class="content-section">
+                <h2>Optimasi (Optimization)</h2>
+                <p>Optimasi adalah proses menemukan nilai input yang akan menghasilkan nilai output maksimum atau minimum (nilai ekstrim) yang diinginkan. Ini adalah aplikasi utama dari turunan.</p>
+                <ol>
+                    <li>Tentukan fungsi yang akan dioptimalkan (misalnya, Luas, Volume, Biaya).</li>
+                    <li>Jika perlu, gunakan kendala (constraint) untuk mengurangi fungsi menjadi satu variabel.</li>
+                    <li>Cari turunan pertama dan tentukan titik kritis ($f'(x)=0$).</li>
+                    <li>Gunakan uji turunan pertama atau kedua untuk memastikan apakah titik kritis tersebut adalah nilai maksimum atau minimum.</li>
+                    <li>Pastikan nilai yang ditemukan sesuai dengan domain masalah nyata.</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            
+            <div class="sidebar-card" style="padding: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                <div class="profile-widget">
+                    <div class="profile">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.l7976B_FoD-Bh9a-LLSFsQHaHa?pid=Api&P=0&h=180" alt="Profile">
+                        <div class="profile-name-only">
+                            <strong>Mas Amba</strong>
+                            <p>Dosen Ngawi</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="materi-populer-card" style="box-shadow: none; border-radius: 0 0 10px 10px; margin-top: 0; padding: 15px;">
+                    <h3>Materi Populer</h3>
+                    <div class="sidebar-links">
+                        <a href="materi.html">Aljabar Linear <span style="float: right; color: #999;">5 modul | 3 jam</span></a>
+                        <a href="materi.html">Kalkulus 1 <span style="float: right; color: #999;">5 modul | 4 jam</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="ai-button-placeholder">AI</div>
+
+</body>
+</html>

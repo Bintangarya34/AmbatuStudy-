@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Fungsi Polinomial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatu-notes</span>
+                <span class="tagline">Pembelajaran Interaktif</span>
+            </div>
+        </div>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="materi.html" class="active-link">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="videos.html">Video</a></li>
+            </ul>
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <div class="page-layout">
+        
+        <div class="main-content-detail">
+            <div class="content-header">
+                <p>Aljabar Linear > Fungsi Polinomial</p>
+                <h1>Fungsi Polinomial</h1>
+                <p>Mencakup teknik pembagian, penemuan akar, dan visualisasi grafik polinomial.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Membagi Polinomial</h2>
+                <p>Pembagian polinomial dapat dilakukan menggunakan dua metode utama: **Pembagian Panjang** (Long Division) dan **Pembagian Sintetik** (Synthetic Division). Pembagian sintetik lebih cepat, tetapi hanya dapat digunakan ketika pembagi berbentuk $(x - r)$.</p>
+                <div class="formula-box">
+                    <p class="math-formula">
+                        $$\frac{P(x)}{D(x)} = Q(x) + \frac{R(x)}{D(x)}$$
+                    </p>
+                    <p class="math-note">P(x) = Polinomial; D(x) = Pembagi; Q(x) = Hasil Bagi; R(x) = Sisa.</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h2>Nol / Akar Polinomial</h2>
+                <p>Nilai $x=r$ disebut **Nol** (atau Akar) Polinomial $P(x)$ jika $P(r) = 0$. Menemukan nol polinomial erat kaitannya dengan teorema sisa dan teorema faktor.</p>
+                
+                <h3>Teorema Faktor:</h3>
+                <p>$(x-r)$ adalah faktor dari $P(x)$ jika dan hanya jika $r$ adalah nol dari $P(x)$.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Menemukan Nol Polinomial</h2>
+                <p>Kita menggunakan **Teorema Akar Rasional** untuk menemukan semua nol rasional yang mungkin dari polinomial. Teorema ini menyatakan bahwa setiap nol rasional $p/q$ harus memenuhi:</p>
+                <ul>
+                    <li>$p$ adalah faktor dari suku konstanta ($a_0$).</li>
+                    <li>$q$ adalah faktor dari koefisien utama ($a_n$).</li>
+                </ul>
+                <p>Setelah mendapatkan calon nol, kita gunakan pembagian sintetik untuk menguji dan mereduksi derajat polinomial.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Menggambar Grafik Polinomial</h2>
+                <p>Langkah-langkah penting dalam menggambar grafik polinomial meliputi:</p>
+                <ol>
+                    <li>Menentukan **tingkah laku ujung** (End Behavior) berdasarkan derajat dan koefisien utama.</li>
+                    <li>Menemukan semua **perpotongan sumbu-x** (nol) dan **multiplisitasnya** (apakah grafik memotong atau menyentuh sumbu x).</li>
+                    <li>Menemukan **perpotongan sumbu-y** (saat $x=0$).</li>
+                    <li>Menggunakan titik uji untuk menentukan letak grafik di antara nol-nol.</li>
+                </ol>
+                <p> </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Pecahan Parsial (Partial Fractions)</h2>
+                <p>Teknik ini digunakan untuk mengurai fungsi rasional (polinomial dibagi polinomial) menjadi penjumlahan pecahan-pecahan yang lebih sederhana. Ini sangat penting dalam kalkulus (terutama integrasi).</p>
+                <div class="formula-box">
+                    Contoh bentuk dasar:
+                    $$\frac{5x - 1}{(x-1)(x+2)} = \frac{A}{x-1} + \frac{B}{x+2}$$
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            
+            <div class="sidebar-card" style="padding: 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
+                <div class="profile-widget">
+                    <div class="profile">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.l7976B_FoD-Bh9a-LLSFsQHaHa?pid=Api&P=0&h=180" alt="Profile">
+                        <div class="profile-name-only">
+                            <strong>Mas Amba</strong>
+                            <p>Dosen Ngawi</p>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="materi-populer-card" style="box-shadow: none; border-radius: 0 0 10px 10px; margin-top: 0; padding: 15px;">
+                    <h3>Materi Populer</h3>
+                    <div class="sidebar-links">
+                        <a href="materi.html">Aljabar Linear <span style="float: right; color: #999;">5 modul | 3 jam</span></a>
+                        <a href="materi.html">Kalkulus 1 <span style="float: right; color: #999;">5 modul | 4 jam</span></a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="ai-button-placeholder">AI</div>
+
+</body>
+</html>

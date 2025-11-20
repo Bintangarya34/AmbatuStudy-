@@ -1,11 +1,11 @@
-/* style.css */
+/* style.css (Gabungan Semua Gaya Pages) */
 
 /* ==================================== */
-/* 1. Variabel Warna */
+/* 1. Variabel Warna (Disesuaikan dengan permintaan terbaru) */
 /* ==================================== */
 :root {
-    --primary-blue: #34CFF4; /* Biru Gelap/Cyan untuk Teks dan Link */
-    --light-blue: #24AEFF; /* Biru Terang untuk Gradient */
+    --primary-blue: #34CFF4; /* Biru Primer (Cyanish) */
+    --light-blue: #24AEFF; /* Biru Terang (Digunakan untuk Active Link dan Gradien) */
     --cta-blue: #34CFF4; /* Warna Tombol Aksi */
     --text-color: #333;
     --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -65,13 +65,13 @@ a {
 }
 
 .site-name {
-    font-size: 18px; /* Ukuran Logo Konsisten */
+    font-size: 18px; 
     font-weight: 700;
     white-space: nowrap;
 }
 
 .tagline {
-    font-size: 11px; /* Ukuran Tagline Konsisten */
+    font-size: 11px; 
     color: #777;
     white-space: nowrap;
 }
@@ -92,7 +92,7 @@ a {
     font-weight: 600;
     color: var(--text-color);
     padding: 8px 20px;
-    border-radius: 15px;
+    border-radius: 15px; /* Menggunakan 15px sesuai input terakhir */
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
@@ -134,7 +134,7 @@ a {
 }
 
 /* ==================================== */
-/* 4. Hero Section Styling */
+/* 4. Home Page (Hero & Feature Cards) */
 /* ==================================== */
 .hero-section {
     padding: 50px 5%;
@@ -181,16 +181,12 @@ a {
     transform: translateY(-2px);
 }
 
-
-/* ==================================== */
-/* 5. Features Section (Cards) - HOME.HTML */
-/* ==================================== */
+/* Feature Cards (Sama Tinggi & Rata Kiri-Kanan) */
 .features-section {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Jarak antar kartu dikurangi */
+    gap: 20px; 
     padding: 50px 5%;
-    /* PENTING: Menyusun kartu agar tingginya sama */
     align-items: stretch; 
 }
 
@@ -200,15 +196,12 @@ a {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 15px;
-    /* Lebar maksimum diperbesar */
     max-width: 400px; 
-    /* Minimal tinggi agar kartu tetap terlihat besar */
     min-height: 280px; 
     box-shadow: var(--card-shadow);
     transition: transform 0.2s; 
 }
 
-/* Hover Effect Card */
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
@@ -236,24 +229,22 @@ a {
     margin-bottom: 10px;
 }
 
-/* PENTING: Deskripsi rata kiri-kanan dan flex-grow untuk tinggi yang seragam */
 .feature-card p.card-description {
     font-size: 14px;
     line-height: 1.6;
     color: #555;
     margin-bottom: 20px;
     flex-grow: 1; 
-    text-align: justify; /* Rata kiri-kanan */
+    text-align: justify; 
 }
 
-/* Link dan Hover Panah */
 .card-link {
-    margin-top: auto; /* Memastikan link selalu di bawah */
+    margin-top: auto; 
     display: flex;
     align-items: center;
     font-weight: 600;
     font-size: 14px;
-    color: var(--light-blue);
+    color: var(--light-blue); /* Diubah ke light-blue sesuai link hover nav */
     transition: color 0.3s;
 }
 
@@ -272,38 +263,305 @@ a {
 }
 
 /* ==================================== */
-/* 6. Gaya Umum Pages Lain (Materi, Video, Latihan) */
+/* 6. Gaya Materi (Daftar Isi - materi.html) */
+/* ==================================== */
+.content-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.content-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+.topic-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 5px solid var(--light-blue);
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.topic-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 10px;
+}
+.topic-links a {
+    font-weight: 600;
+    margin-right: 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--light-blue);
+    color: var(--light-blue);
+    transition: background-color 0.2s;
+}
+.topic-links a:hover {
+    background-color: var(--light-blue);
+    color: #ffffff;
+    border-color: var(--light-blue);
+}
+.topic-list {
+    list-style: none;
+    padding-left: 0;
+}
+.topic-list li {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 5px;
+    color: #444;
+    list-style: disc;
+    margin-left: 25px;
+}
+.topic-list li a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.topic-list li a:hover {
+    text-decoration: underline;
+    color: var(--cta-blue);
+}
+.assumption-note {
+    font-style: italic;
+    font-size: 14px;
+    color: #777;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+}
+
+/* ==================================== */
+/* 7. Gaya Detail Materi (Sidebar & Konten) */
 /* ==================================== */
 
-/* AI Button Placeholder */
-.ai-button-placeholder {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--primary-blue);
-    color: #fff;
+/* Page Layout */
+.page-layout {
+    display: flex;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 5%;
+    gap: 30px;
+}
+.main-content-detail {
+    flex: 3;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+}
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Konten Detail */
+.content-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    border-left: 4px solid var(--cta-blue);
+    padding-left: 10px;
+    margin: 20px 0 15px;
+}
+.content-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.formula-box {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+.math-formula {
+    font-family: serif;
+    font-size: 20px;
+    line-height: 2;
+}
+.math-note {
+     font-style: italic;
+     font-size: 14px;
+     color: #777;
+     margin-top: 10px;
+}
+
+/* Sidebar Widgets (Materi Populer & Profil Gabungan) */
+.sidebar-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.profile-widget { 
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 10px 10px 0 0; 
+    display: flex;
+    align-items: center;
+}
+.profile-widget .profile {
+    display: flex;
+    align-items: center;
+}
+.profile-widget .profile img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
+    margin-right: 10px;
+}
+.profile-name-only strong {
+    font-size: 16px;
+}
+.profile-name-only p {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+}
+.materi-populer-card {
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+}
+.materi-populer-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-top: 10px; 
+}
+.materi-populer-card .sidebar-links a {
+    color: var(--primary-blue);
 }
 
-/* Media Query untuk Responsif */
+
+/* Bank Soal Card (Jika digunakan di page lain) */
+.bank-soal-card {
+    background-color: #e6f7ff;
+    border: 1px solid var(--cta-blue);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.bank-soal-card .material-icons {
+    font-size: 40px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+.bank-soal-card h4 {
+    font-size: 18px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+.bank-soal-card a {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ==================================== */
+/* 8. Gaya Kuis (courses.html) */
+/* ==================================== */
+#quiz-section, #result-section {
+    width: 100%;
+    max-width: 800px; 
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+}
+#score-display {
+    color: var(--cta-blue); 
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#score-display .material-icons {
+    font-size: 24px;
+    color: var(--cta-blue); 
+}
+/* Gaya Hasil Kuis (REVISI AKHIR) */
+#result-section {
+    text-align: center;
+    padding: 40px; 
+}
+.result-icon {
+    margin-top: 10px; 
+    margin-bottom: 30px; 
+    font-size: 60px;
+    color: var(--cta-blue);
+    background-color: #e6f7ff;
+    border-radius: 50%;
+    padding: 20px;
+    display: inline-block;
+}
+#result-score {
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--cta-blue);
+    margin: 30px 0; 
+}
+.result-message {
+    background-color: #f0f8ff;
+    border: 1px solid #cceeff;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 0 auto 40px auto; 
+    color: #555;
+    font-size: 14px;
+    width: 70%; 
+    max-width: 500px;
+}
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.result-actions button {
+    flex-grow: 1; 
+    max-width: 200px; 
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+}
+
+
+/* ==================================== */
+/* 9. Media Queries */
+/* ==================================== */
 @media (max-width: 1024px) {
     .features-section {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
-
     .feature-card {
         max-width: 90%;
+    }
+    .page-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        order: -1;
     }
 }
 
@@ -318,11 +576,9 @@ a {
         justify-content: space-between;
         margin-top: 10px;
     }
-
     .nav-links {
         gap: 15px;
     }
-
     .hero-content h1 {
         font-size: 30px;
     }
