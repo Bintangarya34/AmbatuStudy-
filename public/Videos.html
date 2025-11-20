@@ -1,89 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Video tutorial matematika Ambatustudy: aljabar, kalkulus, dan materi populer.">
-  <title>Ambatustudy — Learn</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Video Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+            /* Tambahan untuk styling Video/videos Page */
+            /* ==================================== */
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+            .video-container {
+                max-width: 1200px;
+                margin: 30px auto;
+                padding: 40px 20px;
+            }
+            .header-content h2 {
+                font-size: 28px;
+                font-weight: 700;
+                color: var(--text-color);
+                margin-bottom: 5px;
+            }
+            .header-content p {
+                font-size: 16px;
+                color: #555;
+                margin-bottom: 30px;
+            }
+            .video-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsif */
+                gap: 30px;
+            }
+            .video-card {
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+                overflow: hidden;
+                transition: transform 0.2s;
+            }
+            .video-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            }
+            .video-placeholder {
+                position: relative;
+                width: 100%;
+                padding-top: 56.25%; /* Rasio aspek 16:9 */
+                background-color: #F1F5F9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+            .video-placeholder .material-icons {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 80px;
+                color: var(--light-blue);
+                opacity: 0.8;
+                transition: opacity 0.2s;
+            }
+            .video-placeholder:hover .material-icons {
+                opacity: 1;
+            }
+            .video-info {
+                padding: 15px;
+                text-align: center;
+            }
+            .video-info h3 {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--text-color);
+            }
+            /* Media Query untuk tata letak yang lebih baik di layar kecil */
+            @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            }
+    </style>
 </head>
 <body>
-  <div class="site">
-    <!-- Header -->
-    <header>
-      <div class="brand">
-        <div class="logo">AS</div>
-        <div>
-          <h1>Ambatu-learn</h1>
-          <div style="font-size:12px;color:var(--muted)">Belajar lewat video interaktif</div>
-        </div>
-      </div>
-      <nav>
-        <a href="home.html">Home</a>
-        <a href="notes.html">Catatan</a>
-        <a href="courses.html">Latihan</a>
-        <a href="videos.html" class="cta">Video</a>
-        <button class="dark-toggle" id="toggleMode" aria-label="Toggle dark mode">🌙</button>
-        <button id="logoutBtn" title="Logout">
-          <i class="fa-solid fa-right-from-bracket"></i>
-        </button>
-      </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="content">
-      <h2 class="chapter">Video Tutorial</h2>
-      <p class="lead">Kumpulan video pembelajaran matematika populer untuk membantu pemahaman konsep lebih cepat.</p>
-      
-      <div class="video-grid">
-        <div class="video-card">
-          <iframe width="100%" height="220" src="https://www.youtube.com/embed/3d6DsjIBzJ4" title="Video tutorial persamaan kuadrat" frameborder="0" allowfullscreen></iframe>
-          <h4>Persamaan Kuadrat Dasar</h4>
-          <p>Pembahasan rumus kuadrat dan contoh soal sederhana.</p>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="material-icons logo-icon">school</span>
+            <div class="logo-text">
+                <span class="site-name">Ambatustudy</span> 
+                <span class="tagline">Belajar Matematika Lebih Mudah</span>
+            </div>
         </div>
 
-        <div class="video-card">
-          <iframe width="100%" height="220" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video tutorial kalkulus limit" frameborder="0" allowfullscreen></iframe>
-          <h4>Limit dan Kalkulus I</h4>
-          <p>Dasar-dasar limit dalam kalkulus, cocok untuk pemula.</p>
+        <div class="nav-right-side">
+            <ul class="nav-links">
+                <li><a href="home.html" >Home</a></li>
+                <li><a href="materi.html">Materi</a></li>  
+                <li><a href="notes.html">Catatan</a></li>
+                <li><a href="courses.html">Latihan</a></li>
+                <li><a href="Videos.html"class="active-link">Video</a></li>
+            </ul>
+
+            <a href="index.html" class="logout-button">
+                <span class="material-icons">logout</span>
+                Log Out
+            </a>
+        </div>
+    </nav>
+
+    <main class="video-container">
+        <div class="header-content">
+            <h2>Video Tutorial</h2>
+            <p>Kumpulan video pembelajaran matematika populer untuk membantu pemahaman konsep lebih cepat.</p>
         </div>
 
-        <div class="video-card">
-          <iframe width="100%" height="220" src="https://www.youtube.com/embed/9bZkp7q19f0" title="Video tutorial geometri" frameborder="0" allowfullscreen></iframe>
-          <h4>Geometri Dasar</h4>
-          <p>Mengenal bentuk, garis, dan sudut dengan cara visual.</p>
-        </div>
+        <div class="video-grid">
+            
+            <a href="link-video-1.html" class="video-card">
+                <div class="video-placeholder">
+                    <span class="material-icons">play_circle_filled</span>
+                </div>
+                <div class="video-info">
+                    <h3>Judul Video 1: Persamaan Kuadrat Dasar</h3>
+                </div>
+            </a>
 
-        <div class="video-card">
-          <iframe width="100%" height="220" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Persiapan ujian matematika" frameborder="0" allowfullscreen></iframe>
-          <h4>Persiapan Ujian Matematika</h4>
-          <p>Tips & trik cepat mengerjakan soal ujian.</p>
-        </div>
-      </div>
+            <a href="link-video-2.html" class="video-card">
+                <div class="video-placeholder">
+                    <span class="material-icons">play_circle_filled</span>
+                </div>
+                <div class="video-info">
+                    <h3>Judul Video 2: Integral Tak Tentu (Dasar)</h3>
+                </div>
+            </a>
+
+            <a href="link-video-3.html" class="video-card">
+                <div class="video-placeholder">
+                    <span class="material-icons">play_circle_filled</span>
+                </div>
+                <div class="video-info">
+                    <h3>Judul Video 3: Fungsi Eksponensial dan Grafik</h3>
+                </div>
+            </a>
+
+            <a href="link-video-4.html" class="video-card">
+                <div class="video-placeholder">
+                    <span class="material-icons">play_circle_filled</span>
+                </div>
+                <div class="video-info">
+                    <h3>Judul Video 4: Konsep Dasar Turunan</h3>
+                </div>
+            </a>
+            
+                        <a href="link-video-4.html" class="video-card">
+                <div class="video-placeholder">
+                    <span class="material-icons">play_circle_filled</span>
+                </div>
+                <div class="video-info">
+                    <h3>Judul Video 5: Konsep Dasar Turunan</h3>
+                </div>
+            </a>
+
+                        <a href="link-video-4.html" class="video-card">
+                <div class="video-placeholder">
+                    <span class="material-icons">play_circle_filled</span>
+                </div>
+                <div class="video-info">
+                    <h3>Judul Video 6: Konsep Dasar Turunan</h3>
+                </div>
+            </a>
+            </div>
     </main>
+    
+    <div class="ai-button-placeholder">AI</div>
 
-    <!-- Footer -->
-    <footer>
-      <p style="font-size:13px;color:var(--muted);">© 2025 Ambatustudy • Video interaktif untuk semua</p>
-    </footer>
-  </div>
-
-  <!-- Unified JavaScript -->
-  <script src="script.js"></script>
-  <script>
-    document.getElementById("logoutBtn").addEventListener("click", function() {
-      // bisa tambahkan localStorage.clear() jika pakai sistem login nanti
-      localStorage.removeItem("loggedInUser");
-      window.location.href = "index.html";
-    });
-  </script>
 </body>
 </html>
