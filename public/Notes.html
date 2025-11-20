@@ -635,6 +635,205 @@
             text-align: center;
         }
         }
+
+        /* Exam Preparation Modal Styles */
+        .exam-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+          display: none !important;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+          backdrop-filter: blur(5px);
+        }
+
+        .exam-modal.active {
+          display: flex !important;
+        }
+
+        .exam-container {
+          background: var(--card);
+          border-radius: 16px;
+          width: 90%;
+          max-width: 700px;
+          max-height: 80vh;
+          overflow-y: auto;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          transition: background 0.3s;
+        }
+
+        body.dark .exam-container {
+          background: var(--dark-card);
+        }
+
+        .exam-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 24px;
+          border-bottom: 1px solid #e5e7eb;
+          background: linear-gradient(135deg, var(--accent), #005fa3);
+          color: white;
+          border-radius: 16px 16px 0 0;
+        }
+
+        body.dark .exam-header {
+          background: linear-gradient(135deg, var(--dark-accent), #0ea5e9);
+          border-bottom-color: #374151;
+        }
+
+        .exam-header h3 {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 600;
+        }
+
+        .exam-close {
+          background: rgba(255, 255, 255, 0.2);
+          border: none;
+          font-size: 18px;
+          cursor: pointer;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          transition: background 0.2s;
+        }
+
+        .exam-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+
+        .exam-content {
+          padding: 24px;
+        }
+
+        .exam-section h4 {
+          margin: 0 0 16px 0;
+          color: var(--accent);
+          font-size: 16px;
+        }
+
+        body.dark .exam-section h4 {
+          color: var(--dark-accent);
+        }
+
+        .exam-packages {
+          display: grid;
+          gap: 12px;
+          margin-bottom: 24px;
+        }
+
+        .exam-package {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px;
+          border: 1px solid #e5e7eb;
+          border-radius: 8px;
+          background: #f9fafb;
+          transition: all 0.2s;
+        }
+
+        body.dark .exam-package {
+          background: #1f2937;
+          border-color: #374151;
+        }
+
+        .exam-package:hover {
+          border-color: var(--accent);
+          transform: translateY(-1px);
+        }
+
+        body.dark .exam-package:hover {
+          border-color: var(--dark-accent);
+        }
+
+        .package-info h5 {
+          margin: 0 0 4px 0;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .package-info p {
+          margin: 0;
+          font-size: 13px;
+          color: var(--muted);
+        }
+
+        body.dark .package-info p {
+          color: var(--dark-muted);
+        }
+
+        .exam-packages .btn-download {
+          background: var(--accent);
+          color: white;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+          white-space: nowrap;
+        }
+
+        body.dark .exam-packages .btn-download {
+          background: var(--dark-accent);
+        }
+
+        .exam-packages .btn-download:hover {
+          background: #005fa3;
+        }
+
+        body.dark .exam-packages .btn-download:hover {
+          background: #0ea5e9;
+        }
+
+        .exam-packages .btn-download:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          background: #6b7280;
+        }
+
+        body.dark .exam-packages .btn-download:disabled {
+          background: #4b5563;
+        }
+
+        .exam-tips {
+          background: #f0f9ff;
+          padding: 16px;
+          border-radius: 8px;
+          border-left: 4px solid var(--accent);
+        }
+
+        body.dark .exam-tips {
+          background: #1e293b;
+          border-left-color: var(--dark-accent);
+        }
+
+        .exam-tips h4 {
+          margin: 0 0 12px 0;
+          font-size: 14px;
+        }
+
+        .exam-tips ul {
+          margin: 0;
+          padding-left: 20px;
+        }
+
+        .exam-tips li {
+          margin-bottom: 6px;
+          font-size: 13px;
+          line-height: 1.4;
+        }
   </style>
 
   <!-- Fonts -->
@@ -830,41 +1029,41 @@
           <div class="exam-packages">
             <div class="exam-package">
               <div class="package-info">
-                <h5>Aljabar & Persamaan</h5>
-                <p>50 soal dengan pembahasan lengkap</p>
+                <h5>Aljabar Linear</h5>
+                <p>Soal Mid Pak EP - Tersedia dalam gambar</p>
               </div>
-              <button class="btn-download" onclick="downloadPDF('aljabar')">
-                <i class="fa-solid fa-download"></i> Download PDF
+              <button class="btn-download" onclick="downloadExam('aljabar-linear')">
+                <i class="fa-solid fa-eye"></i> Lihat Soal
               </button>
             </div>
             
-            <div class="exam-package">
+            <div class="exam-package" style="opacity: 0.6;">
               <div class="package-info">
                 <h5>Kalkulus Dasar</h5>
-                <p>45 soal limit, turunan & integral</p>
+                <p>Segera hadir - 45 soal limit, turunan & integral</p>
               </div>
-              <button class="btn-download" onclick="downloadPDF('kalkulus')">
-                <i class="fa-solid fa-download"></i> Download PDF
+              <button class="btn-download" disabled>
+                <i class="fa-solid fa-clock"></i> Coming Soon
               </button>
             </div>
             
-            <div class="exam-package">
+            <div class="exam-package" style="opacity: 0.6;">
               <div class="package-info">
                 <h5>Geometri & Trigonometri</h5>
-                <p>40 soal dengan diagram visual</p>
+                <p>Segera hadir - 40 soal dengan diagram visual</p>
               </div>
-              <button class="btn-download" onclick="downloadPDF('geometri')">
-                <i class="fa-solid fa-download"></i> Download PDF
+              <button class="btn-download" disabled>
+                <i class="fa-solid fa-clock"></i> Coming Soon
               </button>
             </div>
             
-            <div class="exam-package">
+            <div class="exam-package" style="opacity: 0.6;">
               <div class="package-info">
                 <h5>Statistika & Probabilitas</h5>
-                <p>35 soal analisis data & peluang</p>
+                <p>Segera hadir - 35 soal analisis data & peluang</p>
               </div>
-              <button class="btn-download" onclick="downloadPDF('statistika')">
-                <i class="fa-solid fa-download"></i> Download PDF
+              <button class="btn-download" disabled>
+                <i class="fa-solid fa-clock"></i> Coming Soon
               </button>
             </div>
           </div>
@@ -897,51 +1096,52 @@
     const examModal = document.getElementById('examModal');
     const closeExamBtn = document.getElementById('closeExamBtn');
 
-    examPrep.addEventListener('click', function() {
-      examModal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
+    if (examPrep && examModal && closeExamBtn) {
+      examPrep.addEventListener('click', function() {
+        examModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
 
-    closeExamBtn.addEventListener('click', function() {
-      examModal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    });
-
-    examModal.addEventListener('click', function(e) {
-      if (e.target === examModal) {
-        examModal.style.display = 'none';
+      closeExamBtn.addEventListener('click', function() {
+        examModal.classList.remove('active');
         document.body.style.overflow = 'auto';
-      }
-    });
+      });
 
-    // PDF Download function
-    function downloadPDF(subject) {
-      // Show loading state
+      examModal.addEventListener('click', function(e) {
+        if (e.target === examModal) {
+          examModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+
+    // Make downloadExam function global
+    window.downloadExam = function(subject) {
       const btn = event.target.closest('.btn-download');
       const originalText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Downloading...';
-      btn.disabled = true;
-
-      // Simulate API call to backend
-      setTimeout(() => {
-        // Replace this URL with your actual backend endpoint
-        const downloadUrl = `/api/download-pdf/${subject}`;
+      
+      if (subject === 'aljabar-linear') {
+        // Show loading state
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Loading...';
+        btn.disabled = true;
         
-        // Create a temporary link element to trigger download
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.download = `${subject}-soal-ujian.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Reset button state
-        btn.innerHTML = originalText;
-        btn.disabled = false;
-
-        // Show success message
-        alert(`✅ PDF ${subject} berhasil didownload!`);
-      }, 1500);
+        // Open image in new tab
+        setTimeout(() => {
+          const imageUrl = './assets/aljabar-linear.jpg';
+          window.open(imageUrl, '_blank');
+          
+          // Reset button
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          
+          // Close modal
+          examModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+          
+          // Show success message
+          alert('✅ Soal berhasil dibuka! Silakan lihat di tab baru.');
+        }, 800);
+      }
     }
   </script>
 
