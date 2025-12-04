@@ -7,293 +7,12 @@
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
     <style>
-        /* ==================================== */
-        /* Gaya Spesifik Latihan (Menggantikan Card Container Besar) */
-        /* ==================================== */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Memusatkan item secara horizontal */
-            padding: 50px 5%; 
-            min-height: 80vh;
-        }
-
-        /* Halaman Pilih Materi */
-        #materi-selection {
-            width: 100%;
-            max-width: 800px;
-        }
-
-        #materi-selection h2 {
-            text-align: center;
-            font-size: 30px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        #materi-selection p {
-            text-align: center;
-            color: #777;
-            margin-bottom: 40px;
-        }
-
-        /* Grid Materi */
-        .materi-grid {
-            display: flex;
-            gap: 30px; /* Jarak antar card disesuaikan */
-            justify-content: center;
-            flex-wrap: wrap; 
-        }
-
-        .materi-card {
-            background-color: #ffffff;
-            border: 1px solid #f0f0f0;
-            border-radius: 30px;
-            padding: 30px;
-            /* Ukuran diperbesar */
-            width: 350px; 
-            text-align: center;
-            cursor: pointer;
-            /* Animasi Hover */
-            transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-        }
-
-        .materi-card:hover {
-            transform: translateY(-3px); /* Efek lift */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
-        }
-
-        .materi-icon {
-            font-size: 60px;
-            color: var(--light-blue);
-            background-color: #e6f7ff;
-            border-radius: 50%;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: inline-flex;
-        }
-
-        .materi-card h3 {
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .materi-card p {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 20px;
-        }
-
-        .materi-info {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .materi-info span {
-            display: inline-block;
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #333;
-            background-color: #eee;
-        }
-        
-        /* ==================================== */
-        /* Halaman Kuis dan Hasil (Menggunakan gaya Card) */
-        /* ==================================== */
-        #quiz-section, #result-section {
-            width: 100%;
-            max-width: 800px; 
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            display: none;
-        }
-        #quiz-section {
-            padding: 30px;
-        }
-        
-        #quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        #score-display {
-            color: var(--light-blue); 
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        #score-display .material-icons {
-            font-size: 24px;
-            color: var(--light-blue); 
-        }
-        /* ... (CSS Quiz/Opsi lainnya tetap sama) ... */
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-            margin-bottom: 30px;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background-color: var(--light-blue);
-            border-radius: 4px;
-            transition: width 0.3s;
-        }
-        #question-text {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .option-item {
-            display: flex;
-            align-items: center;
-            background-color: #f7f7f7;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            border: 1px solid #f7f7f7;
-            transition: background-color 0.15s, border-color 0.15s;
-        }
-        .option-item:hover {
-            background-color: #eeeeee;
-        }
-        .option-item.correct {
-            background-color: #e6ffe6; 
-            border-color: #4CAF50; 
-        }
-        .option-item.incorrect {
-            background-color: #ffe6e6;
-            border-color: #F44336; 
-        }
-        .option-letter {
-            width: 30px;
-            height: 30px;
-            background-color: #e0e0e0;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 600;
-            margin-right: 15px;
-        }
-        .option-item.correct .option-letter {
-            background-color: #4CAF50;
-            color: #ffffff;
-        }
-        .option-item.incorrect .option-letter {
-            background-color: #F44336;
-            color: #ffffff;
-        }
-        .status-icon {
-            margin-left: auto;
-            font-size: 24px;
-        }
-        .option-item.correct .status-icon {
-            color: #4CAF50;
-        }
-        .option-item.incorrect .status-icon {
-            color: #F44336;
-        }
-
-
-        /* Gaya Halaman Hasil (REVISI AKHIR) */
-        #result-section {
-            text-align: center;
-            padding: 40px; 
-        }
-        .result-icon {
-            margin-top: 10px; 
-            margin-bottom: 30px; 
-            font-size: 60px;
-            color: var(--light-blue);
-            background-color: #e6f7ff;
-            border-radius: 50%;
-            padding: 20px;
-            display: inline-block;
-        }
-        #result-section h2 {
-            font-size: 36px;
-            margin-top: 15px; 
-            margin-bottom: 10px;
-        }
-        #result-score {
-            font-size: 60px;
-            font-weight: 700;
-            color: var(--light-blue);
-            margin: 30px 0; 
-        }
-        #result-bar-container {
-            width: 50%;
-            margin: 0 auto 40px auto; 
-        }
-        .result-message {
-            background-color: #f0f8ff;
-            border: 1px solid #cceeff;
-            padding: 25px;
-            border-radius: 20px;
-            margin: 0 auto 40px auto; 
-            color: #555;
-            font-size: 14px;
-            width: 90%; 
-            max-width: 700px;
-        }
-        .result-message p {
-            line-height: 1.6;
-            margin: 5px 0;
-        }
-        .result-actions {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .result-actions button {
-            flex-grow: 1; 
-            max-width: 200px; 
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s, transform 0.2s;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px; 
-        }
-        #repeat-quiz-btn {
-            background-color: var(--light-blue);
-            color: white;
-        }
-        #repeat-quiz-btn:hover {
-            background-color: var(--cta-blue);
-            transform: translateY(-2px);
-        }
-        #home-btn {
-            background-color: #f0f0f0;
-            color: #555;
-            border: 1px solid #ddd; 
-        }
-        #home-btn:hover {
-            background-color: #e0e0e0;
-            color: #333;
-            transform: translateY(-2px);
-        }
     </style>
 </head>
+
 <body>
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">
             <span class="material-icons logo-icon">school</span>
@@ -305,7 +24,7 @@
 
         <div class="nav-right-side">
             <ul class="nav-links">
-                <li><a href="home.html" >Home</a></li> 
+                <li><a href="home.html">Home</a></li> 
                 <li><a href="materi.html">Catatan</a></li>
                 <li><a href="courses.html" class="active-link">Latihan</a></li>
                 <li><a href="videos.html">Video</a></li>
@@ -320,6 +39,9 @@
 
     <div class="main-content">
 
+        <!-- =========================== -->
+        <!-- HALAMAN PILIH MATERI -->
+        <!-- =========================== -->
         <div id="materi-selection">
             <h2>Pilih Materi</h2>
             <p>Pilih kategori materi yang ingin Anda pelajari</p>
@@ -347,43 +69,53 @@
             </div>
         </div>
 
-        <div id="quiz-section">
+        <!-- =========================== -->
+        <!-- HALAMAN QUIZ -->
+        <!-- =========================== -->
+        <div id="quiz-section" style="display:none;">
             <div id="quiz-header">
                 <span id="question-count">Pertanyaan 1 dari 10</span>
                 <span id="score-display">
                     <span class="material-icons">emoji_events</span> 0
                 </span>
             </div>
-            
-            <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
 
             <div id="question-area">
-                <p id="question-text">Hasil dari 2x + 3x = ?</p>
-                
-                <div id="options-container">
-                    </div>
+                <p id="question-text">Memuat soal...</p>
+                <div id="options-container"></div>
             </div>
         </div>
 
-        <div id="result-section">
+        <!-- =========================== -->
+        <!-- HALAMAN HASIL -->
+        <!-- =========================== -->
+        <div id="result-section" style="display:none;">
             <span class="material-icons result-icon">emoji_events</span>
             <h2>Quiz selesai!</h2>
-            <p>Sealamat, Anda telah menyelesaikan quiz</p>
+            <p>Selamat, Anda telah menyelesaikan quiz</p>
             
-            <div id="result-score">5/10</div>
+            <div id="result-score">0/0</div>
+
             <div id="result-bar-container">
-                <div class="progress-bar" style="height: 12px;"><div class="progress-bar-fill" id="final-progress-fill"></div></div>
+                <div class="progress-bar" style="height: 12px;">
+                    <div class="progress-bar-fill" id="final-progress-fill"></div>
+                </div>
             </div>
             
             <div class="result-message">
                 <p><strong>Keep Practicing!</strong></p>
-                <p>Jangan Menyerah! Coba pelajari materi lebih dalam dan ulangi quiz.</p>
+                <p>Jangan menyerah! Coba pelajari materi lebih dalam dan ulangi quiz.</p>
             </div>
             
             <div class="result-actions">
                 <button id="repeat-quiz-btn" class="cta-button">
                     <span class="material-icons">refresh</span> Ulangi Quiz
                 </button>
+
                 <button id="home-btn" onclick="window.location.href='home.html'">
                     Kembali ke Home
                 </button>
@@ -392,7 +124,7 @@
 
     </div>
 
+    <!-- SCRIPT QUIZ -->
     <script src="script.js"></script>
-    
 </body>
 </html>
