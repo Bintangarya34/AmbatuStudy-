@@ -1,0 +1,61 @@
+@startuml UseCase_AmbatuStudy
+
+title Use Case Diagram - AmbatuStudy Learning Platform
+
+actor "Siswa/User" as User
+
+rectangle AmbatuStudy {
+    usecase "Login/Logout" as UC_Auth
+    usecase "Lihat Catatan Materi" as UC_Materi
+    usecase "Akses Aljabar Linear" as UC_Aljabar
+    usecase "Akses Kalkulus" as UC_Kalkulus
+    usecase "Menonton Video Tutorial" as UC_Video
+    usecase "Mengerjakan Latihan Soal" as UC_Latihan
+    usecase "Menggunakan Chatbot" as UC_Chat
+    usecase "Persiapan Ujian" as UC_Ujian
+    usecase "Download PDF Materi" as UC_PDF
+}
+
+User --> UC_Auth
+User --> UC_Materi
+User --> UC_Video
+User --> UC_Latihan
+User --> UC_Chat
+User --> UC_Ujian
+
+UC_Materi --> UC_Aljabar : include
+UC_Materi --> UC_Kalkulus : include
+UC_Ujian --> UC_PDF : include
+UC_Latihan --> UC_Chat : extend
+
+note right of UC_Auth
+  Authenticate user
+  sebelum akses fitur
+end note
+
+note right of UC_Materi
+  Catatan terstruktur
+  seperti buku kuliah
+end note
+
+note right of UC_Video
+  Video pembelajaran
+  embedded dari YouTube
+end note
+
+note right of UC_Latihan
+  Quiz interaktif dengan
+  pembahasan soal
+end note
+
+note right of UC_Chat
+  Chatbot ChatGPT
+  untuk tanya jawab
+end note
+
+note right of UC_Ujian
+  Download PDF untuk
+  persiapan ujian
+end note
+
+@enduml

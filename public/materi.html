@@ -90,6 +90,31 @@
             background-color: #f0f8ff;
             border-radius: 5px;
         }
+        .download-soal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 0 20px 0;
+            padding: 8px 16px;
+            background-color: var(--light-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        .download-soal-btn:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 207, 244, 0.3);
+        }
+        .download-soal-btn .material-icons {
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -123,6 +148,9 @@
         <div class="topic-section">
             <h3>Aljabar Linear - Topik yang termasuk dalam rangkaian catatan ini:
             </h3>
+            <a href="assets/aljabar-linear.jpg" download="aljabar-linear.jpg" class="download-soal-btn">
+                <span class="material-icons">download</span> Download Soal
+            </a>
             <ul class="topic-list">
                 <li><p><strong><a href="Alin-1.html">Pendahuluan</a></strong> - Sifat Eksponen, Eksponen Rasional, Eksponen Negatif, Radikal, Polinomial, Pemfaktoran, Ekspresi Rasional, Bilangan Kompleks</p></li>
                 <li><p><strong><a href="Alin-2.html">Menyelesaikan Persamaan dan Pertidaksamaan</a></strong> - Persamaan Linear, Persamaan Kuadrat, Melengkapi Kuadrat, Rumus Kuadrat, Aplikasi Persamaan Linear dan Kuadrat, Dapat Disederhanakan ke Bentuk Kuadrat, Persamaan dengan Radikal, Pertidaksamaan Linear, Pertidaksamaan Polinomial & Rasional, Persamaan & Pertidaksamaan Nilai Mutlak.</p></li> 
