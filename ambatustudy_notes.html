@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbatuStudy - Math Formulas for Learning</title>
+    <meta name="description" content="A comprehensive collection of mathematical formulas and study notes for students">
+    
+    <!-- KaTeX for mathematical formulas (faster alternative to MathJax) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .formula-box {
+            background: #fff;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s ease;
+        }
+        
+        .formula-box:hover {
+            border-color: #667eea;
+        }
+        
+        .math-display {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-family: 'Times New Roman', serif;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .math-display:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+        
+        .math-inline {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            background: #f1f3f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        /* Fallback math styling when external libraries don't load */
+        .formula {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            font-family: 'Times New Roman', serif;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .formula:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+        }
+        
+        .description {
+            color: #555;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        
+        .example {
+            background: #e8f4fd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .icon {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .toc {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .toc ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .toc li {
+            margin: 0;
+        }
+        
+        .toc a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #fff;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid #667eea;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .toc a:hover, .toc a:focus {
+            background: #667eea;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #666;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        .section:focus-within {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AmbatuStudy</h1>
+            <p class="subtitle">Your Ultimate Math Formulas Learning Companion</p>
+            
+            <!-- Table of Contents -->
+            <nav class="toc" role="navigation" aria-label="Table of Contents">
+                <h2>Quick Navigation</h2>
+                <ul>
+                    <li><a href="#algebra">📐 Algebra Fundamentals</a></li>
+                    <li><a href="#calculus">∫ Calculus Essentials</a></li>
+                    <li><a href="#trigonometry">📏 Trigonometry</a></li>
+                    <li><a href="#geometry">📊 Geometry Formulas</a></li>
+                    <li><a href="#statistics">📈 Statistics & Probability</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="section" id="algebra">
+                <h2><span class="icon">📐</span>Algebra Fundamentals</h2>
+                
+                <div class="formula-box">
+                    <h3>Quadratic Formula</h3>
+                    <div class="formula">
+                        $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+                    </div>
+                    <p class="description">
+                        For a quadratic equation of the form $ax^2 + bx + c = 0$ where $a \neq 0$
+                    </p>
+                    <div class="example">
+                        <strong>Example:</strong> Solve $2x^2 + 5x - 3 = 0$<br>
+                        Here, $a = 2$, $b = 5$, $c = -3$<br>
+                        $x = \frac{-5 \pm \sqrt{25 + 24}}{4} = \frac{-5 \pm 7}{4}$<br>
+                        So $x = \frac{1}{2}$ or $x = -3$
+                    </div>
+                </div>
+                
+                <div class="formula-box">
+                    <h3>Factoring Difference of Squares</h3>
+                    <div class="formula">
+                        $$a^2 - b^2 = (a + b)(a - b)$$
+                    </div>
+                    <p class="description">
+                        Useful for factoring expressions that are the difference of two perfect squares
+                    </p>
+                </div>
+            </section>
+            
+            <section class="section" id="calculus">
+                <h2><span class="icon">∫</span>Calculus Essentials</h2>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>Derivative Rules</h3>
+                        <div class="formula">
+                            $$\frac{d}{dx}[x^n] = nx^{n-1}$$
+                        </div>
+                        <div class="formula">
+                            $$\frac{d}{dx}[e^x] = e^x$$
+                        </div>
+                        <div class="formula">
+                            $$\frac{d}{dx}[\ln(x)] = \frac{1}{x}$$
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Integration Rules</h3>
+                        <div class="formula">
+                            $$\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$$
+                        </div>
+                        <div class="formula">
+                            $$\int e^x \, dx = e^x + C$$
+                        </div>
+                        <div class="formula">
+                            $$\int \frac{1}{x} \, dx = \ln|x| + C$$
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>Note:</strong> Remember that $C$ represents the constant of integration in indefinite integrals.
+                </div>
+            </section>
+            
+            <section class="section" id="trigonometry">
+                <h2><span class="icon">📏</span>Trigonometry</h2>
+                
+                <div class="formula-box">
+                    <h3>Pythagorean Identity</h3>
+                    <div class="formula">
+                        $$\sin^2(\theta) + \cos^2(\theta) = 1$$
+                    </div>
+                    <p class="description">
+                        The fundamental trigonometric identity relating sine and cosine
+                    </p>
+                </div>
+                
+                <div class="formula-box">
+                    <h3>Law of Cosines</h3>
+                    <div class="formula">
+                        $$c^2 = a^2 + b^2 - 2ab\cos(C)$$
+                    </div>
+                    <p class="description">
+                        Generalizes the Pythagorean theorem for any triangle
+                    </p>
+                </div>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>Common Angles</h3>
+                        <p>$\sin(30°) = \frac{1}{2}$</p>
+                        <p>$\sin(45°) = \frac{\sqrt{2}}{2}$</p>
+                        <p>$\sin(60°) = \frac{\sqrt{3}}{2}$</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Double Angle Formulas</h3>
+                        <div class="formula">
+                            $$\sin(2\theta) = 2\sin(\theta)\cos(\theta)$$
+                        </div>
+                        <div class="formula">
+                            $$\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$$
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="geometry">
+                <h2><span class="icon">📊</span>Geometry Formulas</h2>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>Area Formulas</h3>
+                        <p><strong>Circle:</strong> $A = \pi r^2$</p>
+                        <p><strong>Rectangle:</strong> $A = lw$</p>
+                        <p><strong>Triangle:</strong> $A = \frac{1}{2}bh$</p>
+                        <p><strong>Trapezoid:</strong> $A = \frac{1}{2}(b_1 + b_2)h$</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Volume Formulas</h3>
+                        <p><strong>Sphere:</strong> $V = \frac{4}{3}\pi r^3$</p>
+                        <p><strong>Cylinder:</strong> $V = \pi r^2 h$</p>
+                        <p><strong>Cone:</strong> $V = \frac{1}{3}\pi r^2 h$</p>
+                        <p><strong>Rectangular Prism:</strong> $V = lwh$</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="statistics">
+                <h2><span class="icon">📈</span>Statistics & Probability</h2>
+                
+                <div class="formula-box">
+                    <h3>Mean and Standard Deviation</h3>
+                    <div class="formula">
+                        $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
+                    </div>
+                    <div class="formula">
+                        $$\sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n} (x_i - \bar{x})^2}$$
+                    </div>
+                    <p class="description">
+                        Where $\bar{x}$ is the sample mean and $\sigma$ is the standard deviation
+                    </p>
+                </div>
+                
+                <div class="formula-box">
+                    <h3>Normal Distribution</h3>
+                    <div class="formula">
+                        $$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
+                    </div>
+                    <p class="description">
+                        The probability density function for a normal distribution with mean $\mu$ and standard deviation $\sigma$
+                    </p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 AmbatuStudy. Empowering students with mathematical knowledge.</p>
+            <p><small>Formulas rendered with MathJax. Designed for optimal learning experience.</small></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Initialize KaTeX rendering when page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            // Try to render math with KaTeX if available
+            if (typeof renderMathInElement !== 'undefined') {
+                try {
+                    renderMathInElement(document.body, {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "$", right: "$", display: false},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    });
+                    console.log('KaTeX rendering completed');
+                } catch (e) {
+                    console.log('KaTeX rendering failed, using fallback styling');
+                    applyFallbackMathStyling();
+                }
+            } else {
+                console.log('KaTeX not available, using fallback styling');
+                applyFallbackMathStyling();
+            }
+            
+            // Add keyboard navigation for sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.setAttribute('tabindex', '0');
+                section.setAttribute('role', 'article');
+            });
+            
+            // Add interactive features to formula boxes
+            document.querySelectorAll('.formula-box').forEach(box => {
+                box.addEventListener('click', function() {
+                    this.style.transform = this.style.transform === 'scale(1.02)' ? 'scale(1)' : 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+            
+            // Smooth scrolling for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Fallback function to style math expressions when external libraries fail
+        function applyFallbackMathStyling() {
+            const mathElements = document.querySelectorAll('.formula');
+            mathElements.forEach(element => {
+                element.style.fontFamily = "'Times New Roman', serif";
+                element.style.fontSize = "1.3rem";
+                element.style.fontStyle = "italic";
+                element.style.background = "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)";
+                element.style.border = "2px solid #dee2e6";
+                element.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
+            });
+            
+            // Style inline math expressions
+            const inlineMath = document.querySelectorAll('p, .description, .example');
+            inlineMath.forEach(element => {
+                element.innerHTML = element.innerHTML.replace(/\$([^$]+)\$/g, '<span class="math-inline">$1</span>');
+            });
+        }
+        
+        // Add copy functionality for formulas
+        function copyFormula(element) {
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalBg = element.style.background;
+                element.style.background = '#d4edda';
+                setTimeout(() => {
+                    element.style.background = originalBg;
+                }, 1000);
+            });
+        }
+        
+        // Add tooltips for formula explanations
+        function addTooltips() {
+            const formulas = document.querySelectorAll('.formula');
+            formulas.forEach(formula => {
+                formula.title = 'Click to copy formula';
+                formula.style.cursor = 'pointer';
+                formula.addEventListener('click', () => copyFormula(formula));
+            });
+        }
+        
+        // Initialize tooltips after DOM is loaded
+        document.addEventListener('DOMContentLoaded', addTooltips);
+    </script>
+</body>
+</html>
