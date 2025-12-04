@@ -75,6 +75,22 @@
                 font-weight: 600;
                 color: var(--text-color);
             }
+            .video-embed {
+                position: relative;
+                width: 100%;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+            }
+            .video-embed iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 10px;
+            }
             /* Media Query untuk tata letak yang lebih baik di layar kecil */
             @media (max-width: 768px) {
             .video-grid {
@@ -116,60 +132,61 @@
 
         <div class="video-grid">
             
-            <a href="link-video-1.html" class="video-card">
-                <div class="video-placeholder">
-                    <span class="material-icons">play_circle_filled</span>
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/ggQwV3WBCjM" title="Video 1: Persamaan Kuadrat Dasar" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div class="video-info">
-                    <h3>Judul Video 1: Persamaan Kuadrat Dasar</h3>
+                    <h3>Video 1: Persamaan Kuadrat Dasar</h3>
                 </div>
-            </a>
-
-            <a href="link-video-2.html" class="video-card">
-                <div class="video-placeholder">
-                    <span class="material-icons">play_circle_filled</span>
-                </div>
-                <div class="video-info">
-                    <h3>Judul Video 2: Integral Tak Tentu (Dasar)</h3>
-                </div>
-            </a>
-
-            <a href="link-video-3.html" class="video-card">
-                <div class="video-placeholder">
-                    <span class="material-icons">play_circle_filled</span>
-                </div>
-                <div class="video-info">
-                    <h3>Judul Video 3: Fungsi Eksponensial dan Grafik</h3>
-                </div>
-            </a>
-
-            <a href="link-video-4.html" class="video-card">
-                <div class="video-placeholder">
-                    <span class="material-icons">play_circle_filled</span>
-                </div>
-                <div class="video-info">
-                    <h3>Judul Video 4: Konsep Dasar Turunan</h3>
-                </div>
-            </a>
-            
-                        <a href="link-video-4.html" class="video-card">
-                <div class="video-placeholder">
-                    <span class="material-icons">play_circle_filled</span>
-                </div>
-                <div class="video-info">
-                    <h3>Judul Video 5: Konsep Dasar Turunan</h3>
-                </div>
-            </a>
-
-                        <a href="link-video-4.html" class="video-card">
-                <div class="video-placeholder">
-                    <span class="material-icons">play_circle_filled</span>
-                </div>
-                <div class="video-info">
-                    <h3>Judul Video 6: Konsep Dasar Turunan</h3>
-                </div>
-            </a>
             </div>
+
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/T6e0NRTIQ0o" title="Video 2: Integral Tak Tentu (Dasar)" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Video 2: Integral Tak Tentu (Dasar)</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/O3-S4_R1_28" title="Video 3: Fungsi Eksponensial dan Grafik" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Video 3: Fungsi Eksponensial dan Grafik</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/TE1BqPXXX7E" title="Video 4: Konsep Dasar Turunan" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Video 4: Konsep Dasar Turunan</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/S0KKC1NTCpo" title="Video 5: Aplikasi Turunan Aljabar" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Video 5: Aplikasi Turunan Aljabar</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/Q-Knyy0ipFs" title="Video 6: Limit Fungsi Aljabar" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Video 6: Limit Fungsi Aljabar</h3>
+                </div>
+            </div>
+            
+        </div>
     </main>
     
 </body>
